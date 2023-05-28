@@ -1,0 +1,22 @@
+.box-connect {
+    margin: 24px auto;
+    width: 300px;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        margin-bottom: 24px;
+        height: 32px;
+    }
+
+    p {
+        text-align: center;
+        padding-top: 16px;
+    }
+}
