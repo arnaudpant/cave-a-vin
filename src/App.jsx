@@ -1,12 +1,15 @@
 import "./sass/style.scss";
+import Header from "./components/Header"
 
 function App() {
 
     return (
         <>
-            <h1>Cave à vin</h1>
+            <Header />
+            
         </>
     );
 }
 
 export default App;
+

@@ -1,1 +1,8 @@
 @import "./base/reset";
+@import "./base/typo";
+@import "./base/variables";
+@import "./base/mixins";
+
+@import "./layout/header";
+@import "./layout/container";
+@import "./layout/footer";

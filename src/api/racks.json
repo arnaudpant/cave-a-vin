@@ -1,0 +1,64 @@
+{
+    "user": "Arnaud",
+    "racks": {
+                "number": 1,
+                "colums": 6,
+                "row": 12
+            },
+    "bottles": [
+        {
+        "row": 1,
+        "colum": 1,
+        "Type": "rouge",
+        "appelation": "bordeaux",
+        "name": "Chateau la pompe",
+        "years": 2021,
+        "stars": 2
+        },
+        {
+        "row": 1,
+        "colum": 2,
+        "Type": "blanc",
+        "appelation": "Moutlouis",
+        "name": "Benoit",
+        "years": 2021,
+        "stars": 3
+        },
+        {
+        "row": 1,
+        "colum": 3,
+        "Type": "blanc",
+        "appelation": "Moutlouis",
+        "name": "Benoit",
+        "years": 2021,
+        "stars": 3
+        },
+        {
+        "row": 1,
+        "colum": 4,
+        "Type": "petillant",
+        "appelation": "Moutlouis",
+        "name": "Benoit",
+        "years": 2019,
+        "stars": 3
+        },
+        {
+        "row": 1,
+        "colum": 5,
+        "Type": "petillant",
+        "appelation": "Moutlouis",
+        "name": "Benoit",
+        "years": 2021,
+        "stars": 3
+        },
+        {
+        "row": 1,
+        "colum": 6,
+        "Type": "rose",
+        "appelation": "cote du rhone",
+        "name": "pas bon",
+        "years": 2023,
+        "stars": 0
+        }
+    ]
+}

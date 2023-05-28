@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "name": "Arnaud",
+            "password": "123",
+            "racks": {
+                "number": 1,
+                "colums": 6,
+                "row": 12
+            }
+        },
+        {
+            "name": "usertest",
+            "password": "456",
+            "racks": {
+                "number": 1,
+                "colums": 6,
+                "row": 12
+            }
+        }
+    ]
+}

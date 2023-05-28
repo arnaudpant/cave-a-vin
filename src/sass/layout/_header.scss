@@ -1,0 +1,16 @@
+header {
+    position: relative;
+    height: 64px;
+    background-color: $color-vin;
+    color: $color-bg;
+
+    h1 {
+        padding-top: 12px;
+    }
+    p {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        cursor: pointer;
+    }
+}
