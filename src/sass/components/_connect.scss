@@ -10,13 +10,45 @@
     display: flex;
     flex-direction: column;
 
+    label {
+        padding-bottom: 4px;
+    }
+
     input {
         margin-bottom: 24px;
         height: 32px;
     }
+    
+    input[type="text"]{
+        background-color: $color-bg;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+    input[type="password"]{
+        width: 60px;
+        margin: 0 auto 24px;
+        font-size: 1.7em;
+        text-align: center;
+    }
+
+    button {
+        height: 40px;
+        width: 100px;
+        margin: 0 auto;
+        background-color: $color-vin;
+        color: $color-bg;
+        border: none;
+        border-radius: 999px;
+        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
 
     p {
         text-align: center;
-        padding-top: 16px;
+        padding-top: 24px;
+        span {
+            color: $color-vin;
+        }
     }
 }
