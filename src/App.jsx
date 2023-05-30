@@ -5,29 +5,26 @@ import { useState } from "react";
 
 function App() {
 
-    const [usersList, setUsersList] = useState(null);
-    const [userConnect, setUserConnect] = useState(false);
-    
-    // FUNCTION APPEL A API
-    async function callAPI(url) {
-        try {
-            const user = await fetch(url);
-            const dataJson = await user.json();
-            setUsersList(dataJson);
-            localStorage.setItem("usersList", JSON.stringify(dataJson))
-
-        } catch (err) {
-            console.log(err);
+    const usersJson = [
+        {
+            name: "arnaud",
+            password: 123
+        },
+        {
+            name: "userTest",
+            password: 456
         }
-    }
+    ]
+    
+    const [userConnect, setUserConnect] = useState(false);
 
-    usersList === null && callAPI("./src/api/users.json");
+
 
 
     return (
         <>
             <Header />
-            {!userConnect && <Connect setUserConnect={setUserConnect} usersList={usersList} />}
+            {!userConnect && <Connect setUserConnect={setUserConnect} usersList={usersJson} />}
         </>
     );
 }
