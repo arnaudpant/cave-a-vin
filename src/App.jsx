@@ -7,11 +7,11 @@ function App() {
 
     const usersJson = [
         {
-            name: "arnaud",
+            login: "arnaud",
             password: 123
         },
         {
-            name: "userTest",
+            login: "userTest",
             password: 456
         }
     ]
