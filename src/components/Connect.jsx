@@ -3,31 +3,51 @@ import { useState } from "react";
 const Connect = ({ setUserConnect, usersList }) => {
     const [userLogin, setUserLogin] = useState();
     const [userPassword, setUserPassword] = useState();
+
     const [errLogin, setErrLogin] = useState(false);
     const [errPassword, setErrPassword] = useState(false);
 
+    
     const handleLoginChange = (e) => {
         e.preventDefault();
         setUserLogin(e.target.value);
     };
 
+    
     const handlePasswordChange = (e) => {
         e.preventDefault();
         setUserPassword(e.target.value);
     };
 
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const user = usersList.find((user) => user.name === userLogin);
-        console.log(user);
+
         if (user === undefined) {
             setErrLogin(true);
-            console.log("erreur login")
+            console.log("erreur login");
+        } else {
+            setErrLogin(false);
         }
-        else if (user && user.password == userPassword) {
-            setErrPassword(true)
-        } 
+
+        if (user.password === Number(userPassword)) {
+            setErrPassword(false);
+        } else {
+            setErrPassword(true);
+        }
+
+        connectUser();
+    };
+
+    const connectUser = () => {
+        if (errLogin === false && errPassword === false) {
+            console.log("ok connect");
+            setUserConnect(true)
+        } else {
+            console.log("erreur connection");
+        }
     };
 
     //console.log(usersList)
@@ -42,9 +62,9 @@ const Connect = ({ setUserConnect, usersList }) => {
                     required
                     name="loginUser"
                     onChange={handleLoginChange}
-                    style={{backgroundColor: errLogin && "red" }}
+                    style={{ backgroundColor: errLogin && "red" }}
                 />
-                {errLogin && <div className="error-login">Erreur de login</div>}
+                {errLogin && <p className="error-form">Erreur de login</p>}
                 <label htmlFor="password" id="code">
                     Code à 3 chiffres
                 </label>
@@ -58,8 +78,11 @@ const Connect = ({ setUserConnect, usersList }) => {
                     required
                     onChange={handlePasswordChange}
                 />
+                {errPassword && (
+                    <p className="error-form">Mot de passe invalide</p>
+                )}
                 <button type="submit">VALIDER</button>
-                <p>
+                <p className="no-compte">
                     Pas de compte ? <span>inscrivez-vous</span>
                 </p>
             </form>
