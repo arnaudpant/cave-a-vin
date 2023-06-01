@@ -3,7 +3,7 @@
 const Header = () => {
     return (
         <header>
-            <h1>Rack a vin</h1>
+            <h1>RACKS A PINARD</h1>
             <p>Inscription</p>
         </header>
     );

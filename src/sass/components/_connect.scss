@@ -26,7 +26,7 @@
     }
 
     input[type="number"]{
-        width: 60px;
+        width: 68px;
         margin: 0 auto 24px;
         font-size: 1.7em;
         text-align: center;
@@ -47,8 +47,8 @@
     .error-form {
         text-align: center;
         color: $color-vin;
-        padding-bottom: 8px;
-
+        padding-top: 24px;
+        font-size: 1.2em;
     }
 
     .no-compte {
@@ -56,6 +56,7 @@
         padding-top: 24px;
         span {
             color: $color-vin;
+            cursor: pointer;
         }
     }
 }
