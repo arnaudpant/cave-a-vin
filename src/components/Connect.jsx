@@ -1,6 +1,37 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Connect = ({ usersList }) => {
-   
+const Connect = ({ usersJson, setUserConnect }) => {
+    const [userLogin, setUserLogin] = useState("");
+    const [userPassword, setUserPassword] = useState();
+    const [loggedIn, setLoggedIn] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const testUser = [...usersJson].find(
+            (login) => login.login === userLogin
+        );
+
+        if (testUser && testUser.password === userPassword) {
+            console.log("Connected");
+            setLoggedIn(true);
+            setUserConnect(true)
+        } else {
+            console.log("Not connected");
+            setLoggedIn(false);
+        }
+    };
+
+    console.log(loggedIn);
+
+    const handleLoginChange = (e) => {
+        setUserLogin(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setUserPassword(Number(e.target.value));
+    };
 
     return (
         <div className="box-connect">
@@ -21,17 +52,20 @@ const Connect = ({ usersList }) => {
                     type="number"
                     name="passcode"
                     id="code"
-                    required
                     onChange={handlePasswordChange}
                 />
 
                 <button type="submit">VALIDER</button>
-                    <p className="no-compte">
-                        Pas de compte ? <span>inscrivez-vous</span>
-                    </p>
+                <p className="no-compte">
+                    Pas de compte ? <span>inscrivez-vous</span>
+                </p>
             </form>
         </div>
     );
+};
+
+Connect.propTypes = {
+    usersJson: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Connect;
