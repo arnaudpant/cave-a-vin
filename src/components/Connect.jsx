@@ -1,7 +1,7 @@
 // import PropTypes from "prop-types";
 import { useState } from "react";
 
-const Connect = ({ handleTest }) => {
+const Connect = ({ handleTest, messageError }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState();
 
@@ -39,6 +39,7 @@ const Connect = ({ handleTest }) => {
                 />
 
                 <button type="submit">VALIDER</button>
+                {messageError ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
             </form>
         </div>
     );

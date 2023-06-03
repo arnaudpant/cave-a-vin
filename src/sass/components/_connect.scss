@@ -44,16 +44,17 @@
         cursor: pointer;
     }
 
-    .error-form {
-        text-align: center;
-        color: $color-vin;
-        padding-top: 24px;
-        font-size: 1.2em;
-    }
-
+    .error-form,
     .no-compte {
         text-align: center;
         padding-top: 24px;
+        font-size: 1.2em;
+    }
+    .error-form {
+        color: $color-vin;
+    }
+
+    .no-compte {
         span {
             color: $color-vin;
             cursor: pointer;

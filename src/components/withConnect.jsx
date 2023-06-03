@@ -2,17 +2,26 @@ import { useState } from "react";
 
 const withConnect = (WrappedComponent, usersJson) => {
     const EnhancedComponent = (props) => {
-        //console.log(props.usersJson)
         const [loggedIn, setLoggedIn] = useState(false);
+        const [messageError, setMessageError] = useState(false);
 
         const handleTest = (userLogin, userPassword) => {
-            const user = [...props.usersJson].find((user) => user.login === userLogin)
+            const user = [...props.usersJson].find(
+                (user) => user.login === userLogin
+            );
             if (user && user.password === Number(userPassword)) {
-                setLoggedIn(true)
+                setMessageError(false)
+                setLoggedIn(true);
+            } else {
+                setMessageError(true)
             }
         };
 
-        return loggedIn ? <h2>Ttestr</h2> : <WrappedComponent {...props} handleTest={handleTest} /> ;
+        return loggedIn ? (
+            <h2>Suite du site</h2>
+        ) : (
+            <WrappedComponent {...props} handleTest={handleTest} messageError={messageError} />
+        );
     };
 
     return EnhancedComponent;
