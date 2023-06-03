@@ -1,7 +1,7 @@
 // import PropTypes from "prop-types";
 import { useState } from "react";
 
-const Connect = ({ userInfo }) => {
+const Connect = ({ handleTest }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState();
 
@@ -15,7 +15,7 @@ const Connect = ({ userInfo }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        userInfo(userLogin, userPassword)
+        handleTest(userLogin, userPassword)
     };
 
     return (
@@ -44,9 +44,5 @@ const Connect = ({ userInfo }) => {
     );
 };
 
-// Connect.propTypes = {
-//     usersJson: PropTypes.arrayOf(PropTypes.object).isRequired,
-//     setUserConnect: PropTypes.func.isRequired,
-// };
 
 export default Connect;

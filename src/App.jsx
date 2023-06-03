@@ -17,7 +17,6 @@ function App() {
         },
     ];
 
-    //const [userConnect, setUserConnect] = useState(false);
 
     const EnhancedComponent = withConnect(Connect)
 
@@ -26,7 +25,6 @@ function App() {
             <Header />
             <EnhancedComponent
                 usersJson={usersJson}
-                //setUserConnect={setUserConnect}
             />
         </>
     );

@@ -1,33 +1,18 @@
 import { useState } from "react";
 
 const withConnect = (WrappedComponent, usersJson) => {
-
-    
-
     const EnhancedComponent = (props) => {
         //console.log(props.usersJson)
-        const [loggedIn, setLoggedIn] = useState(null);
+        const [loggedIn, setLoggedIn] = useState(false);
 
-        const userTestInfo = (userLogin, userPassword) => {
-
-            const testUser = [props.usersJson].find(
-                (login) => login.login === userLogin
-            );
-
-            if (testUser && testUser.password === userPassword) {
-                setLoggedIn(true);
-                //setUserConnect(true);
-            } else {
-                setLoggedIn(false);
+        const handleTest = (userLogin, userPassword) => {
+            const user = [...props.usersJson].find((user) => user.login === userLogin)
+            if (user && user.password === Number(userPassword)) {
+                setLoggedIn(true)
             }
         };
 
-        return (
-            <WrappedComponent
-                {...props}
-                userInfo={userInfo}
-            />
-        );
+        return loggedIn ? <h2>Ttestr</h2> : <WrappedComponent {...props} handleTest={handleTest} /> ;
     };
 
     return EnhancedComponent;
