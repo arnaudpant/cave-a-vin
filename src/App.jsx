@@ -1,7 +1,9 @@
 import "./sass/style.scss";
 import Header from "./components/Header";
 import Connect from "./components/Connect";
-import { useState } from "react";
+import EnhancedComponent from "./components/withConnect";
+import withConnect from "./components/withConnect";
+// import { useState } from "react";
 
 function App() {
     const usersJson = [
@@ -15,19 +17,17 @@ function App() {
         },
     ];
 
-    const [userConnect, setUserConnect] = useState(false);
+    //const [userConnect, setUserConnect] = useState(false);
+
+    const EnhancedComponent = withConnect(Connect)
 
     return (
         <>
             <Header />
-            {userConnect ? (
-                <h2>Utilisateur connecté</h2>
-            ) : (
-                <Connect
-                    usersJson={usersJson}
-                    setUserConnect={setUserConnect}
-                />
-            )}
+            <EnhancedComponent
+                usersJson={usersJson}
+                //setUserConnect={setUserConnect}
+            />
         </>
     );
 }
