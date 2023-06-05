@@ -6,10 +6,12 @@ import withConnect from "./components/withConnect";
 function App() {
     const usersJson = [
         {
+            id: "ae45jkl",
             login: "pascal",
             password: 123,
         },
         {
+            id: "hj78dgf",
             login: "userTest",
             password: 456,
         },

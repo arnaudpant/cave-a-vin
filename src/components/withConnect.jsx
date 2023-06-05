@@ -4,12 +4,15 @@ const withConnect = (WrappedComponent, usersJson) => {
     const EnhancedComponent = (props) => {
         const [loggedIn, setLoggedIn] = useState(false);
         const [messageError, setMessageError] = useState(false);
+        const [idUser, setIdUser] = useState(null)
 
         const handleTest = (userLogin, userPassword) => {
             const user = [...props.usersJson].find(
                 (user) => user.login === userLogin
             );
             if (user && user.password === Number(userPassword)) {
+                setIdUser(user.id)
+                console.log(idUser);
                 setMessageError(false)
                 setLoggedIn(true);
             } else {
@@ -18,7 +21,7 @@ const withConnect = (WrappedComponent, usersJson) => {
         };
 
         return loggedIn ? (
-            <h2>Suite du site</h2>
+            <h2>Suite du site {idUser}</h2>
         ) : (
             <WrappedComponent {...props} handleTest={handleTest} messageError={messageError} />
         );
