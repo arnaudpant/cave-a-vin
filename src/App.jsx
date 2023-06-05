@@ -30,8 +30,35 @@ function App() {
     const usersJson = [
         {
             id: "ae45jkl",
-            login: "pascal",
-            password: 123,
+            login: "p",
+            password: 1,
+            racks: [
+                    {
+                        id: "qqqsss",
+                        type: "rouge",
+                        domaine: "Chateau la pompe",
+                        aoc: "bordeaux",
+                        millesime : 2019,
+                        achat: 2023
+                    },
+                    {
+                        id: "aaaddd",
+                        type: "rouge",
+                        domaine: "Chateau la pompe",
+                        aoc: "bordeaux",
+                        millesime : 2019,
+                        achat: 2023
+                    },
+                    {
+                        id: "fffggg",
+                        type: "blanc",
+                        domaine: "Montlouis",
+                        aoc: "tourraine",
+                        millesime : 2017,
+                        achat: 2022
+                    }, 
+                ],
+            
         },
         {
             id: "hj78dgf",
