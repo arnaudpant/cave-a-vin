@@ -1,64 +1,97 @@
 {
-    "user": "Arnaud",
-    "racks": {
+    "id": "ae45jkl",
+    "rack": {
                 "number": 1,
-                "colums": 6,
-                "row": 12
-            },
-    "bottles": [
-        {
-        "row": 1,
-        "colum": 1,
-        "Type": "rouge",
-        "appelation": "bordeaux",
-        "name": "Chateau la pompe",
-        "years": 2021,
-        "stars": 2
-        },
-        {
-        "row": 1,
-        "colum": 2,
-        "Type": "blanc",
-        "appelation": "Moutlouis",
-        "name": "Benoit",
-        "years": 2021,
-        "stars": 3
-        },
-        {
-        "row": 1,
-        "colum": 3,
-        "Type": "blanc",
-        "appelation": "Moutlouis",
-        "name": "Benoit",
-        "years": 2021,
-        "stars": 3
-        },
-        {
-        "row": 1,
-        "colum": 4,
-        "Type": "petillant",
-        "appelation": "Moutlouis",
-        "name": "Benoit",
-        "years": 2019,
-        "stars": 3
-        },
-        {
-        "row": 1,
-        "colum": 5,
-        "Type": "petillant",
-        "appelation": "Moutlouis",
-        "name": "Benoit",
-        "years": 2021,
-        "stars": 3
-        },
-        {
-        "row": 1,
-        "colum": 6,
-        "Type": "rose",
-        "appelation": "cote du rhone",
-        "name": "pas bon",
-        "years": 2023,
-        "stars": 0
-        }
-    ]
+                "columns": 6,
+                "row1": [ 
+                    {
+                    "column": 1,
+                    "Type": "rouge",
+                    "appelation": "bordeaux",
+                    "name": "Chateau la pompe",
+                    "years": 2021
+                    },
+                    {
+                    "column": 2,
+                    "Type": "blanc",
+                    "appelation": "Moutlouis",
+                    "name": "Benoit",
+                    "years": 2021
+                    },
+                    {
+                    "column": 3,
+                    "Type": "blanc",
+                    "appelation": "Moutlouis",
+                    "name": "Benoit",
+                    "years": 2021
+                    },
+                    {
+                    "column": 4,
+                    "Type": "petillant",
+                    "appelation": "Moutlouis",
+                    "name": "Benoit",
+                    "years": 2019
+                    },
+                    {
+                    "column": 5,
+                    "Type": "petillant",
+                    "appelation": "Moutlouis",
+                    "name": "Benoit",
+                    "years": 2021
+                    },
+                    {
+                    "column": 6,
+                    "Type": null,
+                    "appelation": null,
+                    "name": null,
+                    "years": null
+                    }
+                    ],
+                "row2" : 
+                    [ 
+                        {
+                        "column": 1,
+                        "Type": "blanc",
+                        "appelation": "bordeaux",
+                        "name": "Chateau la pompe",
+                        "years": 2021
+                        },
+                        {
+                        "column": 2,
+                        "Type": "blanc",
+                        "appelation": "Moutlouis",
+                        "name": "Benoit",
+                        "years": 2021
+                        },
+                        {
+                        "column": 3,
+                        "Type": "blanc",
+                        "appelation": "Moutlouis",
+                        "name": "Benoit",
+                        "years": 2021
+                        },
+                        {
+                        "column": 4,
+                        "Type": "petillant",
+                        "appelation": "Moutlouis",
+                        "name": "Benoit",
+                        "years": 2019
+                        },
+                        {
+                        "column": 5,
+                        "Type": "petillant",
+                        "appelation": "Moutlouis",
+                        "name": "Benoit",
+                        "years": 2021
+                        },
+                        {
+                        "column": 6,
+                        "Type": "petillant",
+                        "appelation": "Moutlouis",
+                        "name": "Benoit",
+                        "years": 2021
+                        }
+                    ]
+            }
+    
 }

@@ -2,8 +2,28 @@ import "./sass/style.scss";
 import Header from "./components/Header";
 import Connect from "./components/Connect";
 import withConnect from "./components/withConnect";
+import { useEffect, useState } from "react";
 
 function App() {
+    const [userApi, setUserApi] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("/src/api/users.json");
+                const jsonData = await response.json();
+                setUserApi(jsonData.users);
+            } catch (error) {
+                console.error(
+                    "Erreur lors de la récupération du fichier JSON:",
+                    error
+                );
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const usersJson = [
         {
             id: "ae45jkl",
@@ -17,15 +37,12 @@ function App() {
         },
     ];
 
-
-    const EnhancedComponent = withConnect(Connect)
+    const EnhancedComponent = withConnect(Connect);
 
     return (
         <>
             <Header />
-            <EnhancedComponent
-                usersJson={usersJson}
-            />
+            <EnhancedComponent usersJson={userApi} />
         </>
     );
 }

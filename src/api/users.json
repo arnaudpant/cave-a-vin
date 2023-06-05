@@ -1,12 +1,14 @@
 {
     "users": [
         {
-            "login": "Arnaud",
-            "password": "123"
+            "id": "ah45fxw",
+            "login": "moi",
+            "password": 123
         },
         {
-            "login": "usertest",
-            "password": "456"
+            "id": "hj78dgf",
+            "login": "userTest",
+            "password": 456
         }
     ]
 }
