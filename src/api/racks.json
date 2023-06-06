@@ -1,97 +1,40 @@
 {
-    "id": "ae45jkl",
-    "rack": {
-                "number": 1,
-                "columns": 6,
-                "row1": [ 
-                    {
-                    "column": 1,
-                    "Type": "rouge",
-                    "appelation": "bordeaux",
-                    "name": "Chateau la pompe",
-                    "years": 2021
-                    },
-                    {
-                    "column": 2,
-                    "Type": "blanc",
-                    "appelation": "Moutlouis",
-                    "name": "Benoit",
-                    "years": 2021
-                    },
-                    {
-                    "column": 3,
-                    "Type": "blanc",
-                    "appelation": "Moutlouis",
-                    "name": "Benoit",
-                    "years": 2021
-                    },
-                    {
-                    "column": 4,
-                    "Type": "petillant",
-                    "appelation": "Moutlouis",
-                    "name": "Benoit",
-                    "years": 2019
-                    },
-                    {
-                    "column": 5,
-                    "Type": "petillant",
-                    "appelation": "Moutlouis",
-                    "name": "Benoit",
-                    "years": 2021
-                    },
-                    {
-                    "column": 6,
-                    "Type": null,
-                    "appelation": null,
-                    "name": null,
-                    "years": null
-                    }
-                    ],
-                "row2" : 
-                    [ 
-                        {
-                        "column": 1,
-                        "Type": "blanc",
-                        "appelation": "bordeaux",
-                        "name": "Chateau la pompe",
-                        "years": 2021
-                        },
-                        {
-                        "column": 2,
-                        "Type": "blanc",
-                        "appelation": "Moutlouis",
-                        "name": "Benoit",
-                        "years": 2021
-                        },
-                        {
-                        "column": 3,
-                        "Type": "blanc",
-                        "appelation": "Moutlouis",
-                        "name": "Benoit",
-                        "years": 2021
-                        },
-                        {
-                        "column": 4,
-                        "Type": "petillant",
-                        "appelation": "Moutlouis",
-                        "name": "Benoit",
-                        "years": 2019
-                        },
-                        {
-                        "column": 5,
-                        "Type": "petillant",
-                        "appelation": "Moutlouis",
-                        "name": "Benoit",
-                        "years": 2021
-                        },
-                        {
-                        "column": 6,
-                        "Type": "petillant",
-                        "appelation": "Moutlouis",
-                        "name": "Benoit",
-                        "years": 2021
-                        }
-                    ]
-            }
+    "id": "rackapascalalpha",
+    "row1": [
+        {
+            "id": "qqqsss",
+            "type": "rouge",
+            "domaine": "Chateau la pompe",
+            "aoc": "bordeaux",
+            "millesime" : 2019,
+            "achat": 2023
+        },
+        {
+            "id": "qqqsss",
+            "type": "rouge",
+            "domaine": "Chateau la pompe",
+            "aoc": "bordeaux",
+            "millesime" : 2019,
+            "achat": 2023
+        }
+    ],
+    "row2": [
+        {
+            "id": "qqqsss",
+            "type": "rouge",
+            "domaine": "Chateau la pompe",
+            "aoc": "bordeaux",
+            "millesime" : 2019,
+            "achat": 2023
+        },
+        {
+            "id": "qqqsss",
+            "type": "rouge",
+            "domaine": "Chateau la pompe",
+            "aoc": "bordeaux",
+            "millesime" : 2019,
+            "achat": 2023
+        }
+    ]
     
 }
