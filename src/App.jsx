@@ -2,10 +2,9 @@ import "./sass/style.scss";
 import Header from "./components/Header";
 import Connect from "./components/Connect";
 import withConnect from "./components/withConnect";
-// import { useEffect, useState } from "react";
+import { usersJson } from "./api/usersJson";
 
 function App() {
-
     // *** RECUPERATION DU JSON AVEC USEEFFECT ***
 
     //const [userApi, setUserApi] = useState();
@@ -27,21 +26,6 @@ function App() {
     //     fetchData();
     // }, []);
 
-    const usersJson = [
-        {
-            id: "ae45jkl",
-            login: "p",
-            password: 1,
-            racks: ["rackapascalalpha", "rackapascalbravo"]
-            
-        },
-        {
-            id: "hj78dgf",
-            login: "userTest",
-            password: 456,
-            racks: ["racktestalpha", "racktestbravo"]
-        },
-    ];
 
     const EnhancedComponent = withConnect(Connect);
 

@@ -5,7 +5,7 @@ const withConnect = (WrappedComponent) => {
     const EnhancedComponent = (props) => {
         const [loggedIn, setLoggedIn] = useState(false);
         const [messageError, setMessageError] = useState(false);
-        const [racksUser, setRacksUser] = useState(null);
+        const [userId, setUserId] = useState();
 
         const handleTest = (userLogin, userPassword) => {
             // eslint-disable-next-line react/prop-types
@@ -13,9 +13,9 @@ const withConnect = (WrappedComponent) => {
                 (user) => user.login === userLogin
             );
             if (user && user.password === Number(userPassword)) {
-                setRacksUser(user.racks);
                 setMessageError(false);
                 setLoggedIn(true);
+                setUserId(user.id)
             } else {
                 setMessageError(true);
             }
@@ -23,7 +23,8 @@ const withConnect = (WrappedComponent) => {
         };
 
         return loggedIn ? (
-            <ContainerRacks racksUser={racksUser} />
+            // eslint-disable-next-line react/prop-types
+            <ContainerRacks userId={userId} />
         ) : (
             <WrappedComponent
                 {...props}
