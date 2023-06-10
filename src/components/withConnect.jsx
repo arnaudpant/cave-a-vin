@@ -14,8 +14,8 @@ const withConnect = (WrappedComponent) => {
             );
             if (user && user.password === Number(userPassword)) {
                 setMessageError(false);
-                setLoggedIn(true);
                 setUserId(user.id)
+                setLoggedIn(true);
             } else {
                 setMessageError(true);
             }

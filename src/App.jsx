@@ -5,28 +5,6 @@ import withConnect from "./components/withConnect";
 import { usersJson } from "./api/usersJson";
 
 function App() {
-    // *** RECUPERATION DU JSON AVEC USEEFFECT ***
-
-    //const [userApi, setUserApi] = useState();
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await fetch("/src/api/users.json");
-    //             const jsonData = await response.json();
-    //             setUserApi(jsonData.users);
-    //         } catch (error) {
-    //             console.error(
-    //                 "Erreur lors de la récupération du fichier JSON:",
-    //                 error
-    //             );
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, []);
-
-
     const EnhancedComponent = withConnect(Connect);
 
     return (
