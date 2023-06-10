@@ -1,0 +1,55 @@
+.rack {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 8px 8px;
+    justify-items: stretch;
+    margin: 24px 0;
+}
+
+.bottle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+
+    p {
+        padding-top: 4px;
+    }
+}
+
+.bottle-color {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    margin: 4px;
+}
+
+.rack-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 300px;
+    border-radius: 16px;
+    background-color: $color-vin;
+    color: $color-bg;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.rack-modal__infos {
+    margin: 16px 0;
+    p{
+        padding: 4px;
+        text-align: center;
+    }
+}

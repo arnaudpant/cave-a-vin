@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    padding: 24px 0;
+}
+
+.box-racks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
