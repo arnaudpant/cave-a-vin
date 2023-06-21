@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ModalBottle from "./ModalBottle";
 
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
@@ -20,22 +21,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     gridTemplateRows: `repeat(${rows}, 80px)`,
                 }}
             >
-                {activeModal && (
-                    <div
-                        className="rack-modal"
-                        // eslint-disable-next-line react/no-unknown-property
-                        modalBottle={modalBottle}
-                        onClick={() => setActiveModal(false)}
-                    >
-                        <h2>Vin {modalBottle.type}</h2>
-                        <h3>{modalBottle.aoc}</h3>
-                        <div className="rack-modal__infos">
-                            <p>{modalBottle.domaine}</p>
-                            <p>{modalBottle.millesime}</p>
-                            <p>Date achat: {modalBottle.achat}</p>
-                        </div>
-                    </div>
-                )}
+                {activeModal && <ModalBottle setActiveModal={setActiveModal} modalBottle={modalBottle} /> }
 
                 {
                     // eslint-disable-next-line react/prop-types
