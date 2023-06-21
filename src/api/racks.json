@@ -1,0 +1,98 @@
+{
+    "racks": [
+        {
+            "id": "ae45jkl",
+            "columns": 6,
+            "rows": 4,
+            "bottles": [
+                {
+                    "id": "aaa",
+                    "type": "rouge",
+                    "domaine": "Chateau la pompe",
+                    "aoc": "grave",
+                    "millesime": 2019,
+                    "achat": 2023
+                },
+                {
+                    "id": "bbb",
+                    "type": "rouge",
+                    "domaine": "Chateau la pompe",
+                    "aoc": "grave",
+                    "millesime": 2019,
+                    "achat": 2023
+                },
+                {
+                    "id": "ccc",
+                    "type": "blanc",
+                    "domaine": "Montlouis Benoit",
+                    "aoc": "montlouis",
+                    "millesime": 2017,
+                    "achat": 2020
+                },
+                {
+                    "id": "ddd",
+                    "type": "petillant",
+                    "domaine": "Montlouis Benoit",
+                    "aoc": "montlouis",
+                    "millesime": 2018,
+                    "achat": 2020
+                },
+                {
+                    "id": "ddd",
+                    "type": "petillant",
+                    "domaine": "Montlouis Benoit",
+                    "aoc": "montlouis",
+                    "millesime": 2018,
+                    "achat": 2020
+                }
+            ]
+        },
+        {
+            "id": "hj78dgf",
+            "columns": 6,
+            "rows": 3,
+            "bottles": [
+                {
+                    "id": "ppp",
+                    "type": "rouge",
+                    "domaine": "Saint Emillion",
+                    "aoc": "bordeaux",
+                    "millesime": 2015,
+                    "achat": 2017
+                },
+                {
+                    "id": "ooo",
+                    "type": "rouge",
+                    "domaine": "Saint Emillion",
+                    "aoc": "bordeaux",
+                    "millesime": 2015,
+                    "achat": 2017
+                },
+                {
+                    "id": "iii",
+                    "type": "champagne",
+                    "domaine": "Piquette",
+                    "aoc": "champagne",
+                    "millesime": 2017,
+                    "achat": 2020
+                },
+                {
+                    "id": "uuu",
+                    "type": "champagne",
+                    "domaine": "Piquette",
+                    "aoc": "champagne",
+                    "millesime": 2018,
+                    "achat": 2020
+                },
+                {
+                    "id": "yyy",
+                    "type": "champagne",
+                    "domaine": "Piquette",
+                    "aoc": "champagne",
+                    "millesime": 2018,
+                    "achat": 2020
+                }
+            ]
+        }
+    ]
+}

@@ -6,13 +6,30 @@ import { useEffect, useState } from "react";
 const ContainerRacks = ({ userId }) => {
     const [listRacks, setListRacks] = useState([]);
 
+    useEffect( () => {
+        const fetchRacks = async () => {
+            const url = "src/api/racks.json";
+
+            try {
+                const response = await fetch(url)
+                const racksJson = await response.json()
+                //console.log(racksJson.racks);
+                setListRacks(racksJson.racks)
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+        fetchRacks()
+    }, [])
+
     useEffect(() => {
         const tempRacks = [...listRacks];
         racks.map((rack) => {
             rack.id === userId && tempRacks.push(rack);
         });
         setListRacks(tempRacks);
-    }, [userId]);
+    }, []);
 
 
     return (
@@ -21,7 +38,7 @@ const ContainerRacks = ({ userId }) => {
             <div className="box-racks">
                 {listRacks &&
                     listRacks.map((rack, index) => (
-                        <Rack bottles={rack.bottles} key={index} />
+                        <Rack bottles={rack.bottles} columns={rack.columns} rows={rack.rows} key={index} />
                     ))}
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Rack = ({ bottles }) => {
+const Rack = ({ bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setmodalBottle] = useState();
 
@@ -11,7 +11,7 @@ const Rack = ({ bottles }) => {
     };
 
     return (
-        <div className="rack">
+        <div className="rack" style={{gridTemplateColumns: `repeat(${columns}, 100px)`, gridTemplateRows: `repeat(${rows}, 80px)`}}>
             {activeModal && (
                 <div
                     className="rack-modal"
