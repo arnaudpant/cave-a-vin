@@ -70,7 +70,7 @@
                 },
                 {
                     "id": "iii",
-                    "type": "champagne",
+                    "type": "pettillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2017,
@@ -78,7 +78,7 @@
                 },
                 {
                     "id": "uuu",
-                    "type": "champagne",
+                    "type": "pettillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2018,
@@ -86,7 +86,7 @@
                 },
                 {
                     "id": "yyy",
-                    "type": "champagne",
+                    "type": "pettillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2018,

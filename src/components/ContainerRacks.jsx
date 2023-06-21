@@ -1,35 +1,35 @@
 import Rack from "./Rack";
-import { racks } from "../api/racks";
+//import { racks } from "../api/racks";
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
-    const [listRacks, setListRacks] = useState([]);
+    const [listRacks, setListRacks] = useState();
+    const [dataRacks, setDataRacks] = useState([]);
 
-    useEffect( () => {
+    useEffect(() => {
         const fetchRacks = async () => {
             const url = "src/api/racks.json";
 
             try {
-                const response = await fetch(url)
-                const racksJson = await response.json()
-                //console.log(racksJson.racks);
-                setListRacks(racksJson.racks)
+                const response = await fetch(url);
+                const racksJson = await response.json();
+                setDataRacks(racksJson.racks);
             } catch (error) {
-                console.log(error)
+                console.log(error); 
             }
-
-        }
-        fetchRacks()
-    }, [])
+        };
+        fetchRacks();
+    }, []);
 
     useEffect(() => {
-        const tempRacks = [...listRacks];
-        racks.map((rack) => {
-            rack.id === userId && tempRacks.push(rack);
+        const tempRacks = []
+        dataRacks.map((rack) => {
+            rack.id === userId && tempRacks.push(rack)
         });
         setListRacks(tempRacks);
-    }, []);
+    }, [dataRacks, userId]);
+    
 
 
     return (
@@ -38,7 +38,12 @@ const ContainerRacks = ({ userId }) => {
             <div className="box-racks">
                 {listRacks &&
                     listRacks.map((rack, index) => (
-                        <Rack bottles={rack.bottles} columns={rack.columns} rows={rack.rows} key={index} />
+                        <Rack
+                            bottles={rack.bottles}
+                            columns={rack.columns}
+                            rows={rack.rows}
+                            key={index}
+                        />
                     ))}
             </div>
         </div>
