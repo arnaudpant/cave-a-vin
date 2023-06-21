@@ -12,7 +12,7 @@ const ContainerRacks = ({ userId }) => {
             rack.id === userId && tempRacks.push(rack);
         });
         setListRacks(tempRacks);
-    }, []);
+    }, [userId]);
 
 
     return (
