@@ -39,6 +39,14 @@
                     "achat": 2020
                 },
                 {
+                    "id": "",
+                    "type": "",
+                    "domaine": "",
+                    "aoc": "",
+                    "millesime": null,
+                    "achat": null
+                },
+                {
                     "id": "ddd",
                     "type": "petillant",
                     "domaine": "Montlouis Benoit",

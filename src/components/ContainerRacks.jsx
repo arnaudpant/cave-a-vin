@@ -1,6 +1,6 @@
 import Rack from "./Rack";
-//import { racks } from "../api/racks";
 import { useEffect, useState } from "react";
+import ErrorBoundary from "./ErrorBoundery";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
@@ -28,7 +28,15 @@ const ContainerRacks = ({ userId }) => {
             rack.id === userId && tempRacks.push(rack);
         });
         setListRacks(tempRacks);
+
+        return () => {
+            setListRacks([]);
+        };
     }, [dataRacks, userId]);
+
+
+    
+
 
     return (
         <div className="container">
@@ -36,15 +44,14 @@ const ContainerRacks = ({ userId }) => {
             <div className="box-racks">
                 {listRacks &&
                     listRacks.map((rack, index) => (
-                        <>
-                            <Rack
-                                name={rack.name}
-                                bottles={rack.bottles}
-                                columns={rack.columns}
-                                rows={rack.rows}
-                                key={index}
-                            />
-                        </>
+                        
+                        <Rack
+                            key={index}
+                            name={rack.name}
+                            bottles={rack.bottles}
+                            columns={rack.columns}
+                            rows={rack.rows}
+                        />
                     ))}
             </div>
         </div>

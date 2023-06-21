@@ -1,19 +1,35 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ModalBottle from "./ModalBottle";
 
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setmodalBottle] = useState();
+    
+    const nbrBottles = useRef(calculNbrBottles());
+
+    function calculNbrBottles () {
+        let bottlesInRack = 0;
+        for (let bottle of bottles) {
+            if (bottle.id !== "") {
+                bottlesInRack += 1
+            }
+        }
+        return bottlesInRack
+    }
+
 
     const handleModal = (bottle) => {
         setActiveModal(true);
         setmodalBottle(bottle);
+        
     };
+
+    
 
     return (
         <>
-            <h4>Rack {name}</h4>
+            <h4>Rack {name} : {nbrBottles.current} bouteilles </h4>
             <div
                 className="rack"
                 style={{
@@ -21,7 +37,12 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     gridTemplateRows: `repeat(${rows}, 80px)`,
                 }}
             >
-                {activeModal && <ModalBottle setActiveModal={setActiveModal} modalBottle={modalBottle} /> }
+                {activeModal && (
+                    <ModalBottle
+                        setActiveModal={setActiveModal}
+                        modalBottle={modalBottle}
+                    />
+                )}
 
                 {
                     // eslint-disable-next-line react/prop-types

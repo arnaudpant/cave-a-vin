@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
-const ModalBottle = ({setActiveModal, modalBottle}) => {
+const ModalBottle = ({ setActiveModal, modalBottle }) => {
     return (
-        <div
-            className="rack-modal"
-            onClick={() => setActiveModal(false)}
-        >
+        <div className="rack-modal" onClick={() => setActiveModal(false)}>
             <p></p>
             <h2>Vin {modalBottle.type}</h2>
             <h3>{modalBottle.aoc}</h3>
@@ -13,6 +10,8 @@ const ModalBottle = ({setActiveModal, modalBottle}) => {
                 <p>{modalBottle.millesime}</p>
                 <p>Date achat: {modalBottle.achat}</p>
             </div>
+            <button>Editer</button>
+            <button>Supprimer</button>
         </div>
     );
 };
