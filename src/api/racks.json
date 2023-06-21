@@ -1,6 +1,7 @@
 {
     "racks": [
         {
+            "name": "gauche",
             "id": "ae45jkl",
             "columns": 6,
             "rows": 4,
@@ -48,6 +49,7 @@
             ]
         },
         {
+            "name": "droit",
             "id": "hj78dgf",
             "columns": 6,
             "rows": 3,

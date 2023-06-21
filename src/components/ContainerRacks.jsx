@@ -16,21 +16,19 @@ const ContainerRacks = ({ userId }) => {
                 const racksJson = await response.json();
                 setDataRacks(racksJson.racks);
             } catch (error) {
-                console.log(error); 
+                console.log(error);
             }
         };
         fetchRacks();
     }, []);
 
     useEffect(() => {
-        const tempRacks = []
+        const tempRacks = [];
         dataRacks.map((rack) => {
-            rack.id === userId && tempRacks.push(rack)
+            rack.id === userId && tempRacks.push(rack);
         });
         setListRacks(tempRacks);
     }, [dataRacks, userId]);
-    
-
 
     return (
         <div className="container">
@@ -38,12 +36,15 @@ const ContainerRacks = ({ userId }) => {
             <div className="box-racks">
                 {listRacks &&
                     listRacks.map((rack, index) => (
-                        <Rack
-                            bottles={rack.bottles}
-                            columns={rack.columns}
-                            rows={rack.rows}
-                            key={index}
-                        />
+                        <>
+                            <Rack
+                                name={rack.name}
+                                bottles={rack.bottles}
+                                columns={rack.columns}
+                                rows={rack.rows}
+                                key={index}
+                            />
+                        </>
                     ))}
             </div>
         </div>
