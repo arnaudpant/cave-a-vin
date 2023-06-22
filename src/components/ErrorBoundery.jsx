@@ -1,19 +1,23 @@
 import { Component } from "react";
 
-class ErrorBoundary extends Component {
+class MyErrorBoundary extends Component {
     state = {
-        error: null,
+        errorMessage: '',
     };
 
     static getDerivedStateFromError(error) {
-        return {error}
+        return {errorMessage: error.toString()}
     }
 
+    // componentDidCatch(error, info) {
+    //     this.logErrorToService(error.toString(), info.componentStack);
+    // }
+
     render() {
-        if (this.state.hasError) {
+        if (this.state.errorMessage) {
             return (
                 <div>
-                    <h1>Une erreur est survenue.</h1>
+                    <h1>Une erreur est survenue</h1>
                 </div>
             );
         }
@@ -22,4 +26,4 @@ class ErrorBoundary extends Component {
     }
 }
 
-export default ErrorBoundary;
+export default MyErrorBoundary;

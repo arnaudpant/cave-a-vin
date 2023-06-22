@@ -5,31 +5,29 @@ import ModalBottle from "./ModalBottle";
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setmodalBottle] = useState();
-    
+
     const nbrBottles = useRef(calculNbrBottles());
 
-    function calculNbrBottles () {
+    function calculNbrBottles() {
         let bottlesInRack = 0;
         for (let bottle of bottles) {
             if (bottle.id !== "") {
-                bottlesInRack += 1
+                bottlesInRack += 1;
             }
         }
-        return bottlesInRack
+        return bottlesInRack; 
     }
-
 
     const handleModal = (bottle) => {
         setActiveModal(true);
         setmodalBottle(bottle);
-        
     };
-
-    
 
     return (
         <>
-            <h4>Rack {name} : {nbrBottles.current} bouteilles </h4>
+            <h4>
+                Rack {name} : {nbrBottles.current} bouteilles{" "}
+            </h4>
             <div
                 className="rack"
                 style={{

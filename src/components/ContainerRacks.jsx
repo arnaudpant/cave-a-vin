@@ -1,5 +1,6 @@
 import Rack from "./Rack";
 import { useEffect, useState } from "react";
+import MyErrorBoundary from "./ErrorBoundery";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
@@ -33,25 +34,22 @@ const ContainerRacks = ({ userId }) => {
         };
     }, [dataRacks, userId]);
 
-
-    
-
-
     return (
         <div className="container">
             <h3>Liste des racks</h3>
             <div className="box-racks">
-                {listRacks &&
-                    listRacks.map((rack, index) => (
-                        
-                        <Rack
-                            key={index}
-                            name={rack.name}
-                            bottles={rack.bottles}
-                            columns={rack.columns}
-                            rows={rack.rows}
-                        />
-                    ))}
+                <MyErrorBoundary>
+                    {listRacks &&
+                        listRacks.map((rack, index) => (
+                            <Rack
+                                key={index}
+                                name={rack.name}
+                                bottles={rack.bottles}
+                                columns={rack.columns}
+                                rows={rack.rows}
+                            />
+                        ))}
+                </MyErrorBoundary>
             </div>
         </div>
     );
