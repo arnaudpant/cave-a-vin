@@ -1,6 +1,5 @@
 import Rack from "./Rack";
 import { useEffect, useState } from "react";
-import ErrorBoundary from "./ErrorBoundery";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
