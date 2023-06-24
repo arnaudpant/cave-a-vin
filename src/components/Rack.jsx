@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import ModalBottle from "./ModalBottle";
 
 // eslint-disable-next-line react/prop-types
@@ -6,6 +6,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setmodalBottle] = useState();
 
+    // useRef
     const nbrBottles = useRef(calculNbrBottles());
 
     function calculNbrBottles() {
@@ -23,6 +24,33 @@ const Rack = ({ name, bottles, columns, rows }) => {
         setmodalBottle(bottle);
     };
 
+    // useReducer
+    function reducerFavoris (state, action) {
+        //console.log(state)
+        switch (action.type) {
+            case 'ADD_FAVORIS': {
+
+                const bottleInFav = {
+                    type: action.favBottle.type,
+                    domaine: action.favBottle.domaine,
+                    aoc: action.favBottle.aoc,
+                }
+
+                return [...state, bottleInFav]
+            }
+        }
+        throw Error('Unknown action: ' + action.type); 
+    }
+    
+    const [state, dispatch] = useReducer(reducerFavoris, [])
+    console.log(state);
+
+    function handleFavoris (e, bottle) {
+        e.stopPropagation()
+        dispatch({type: 'ADD_FAVORIS', favBottle: bottle}  )
+    }
+
+
     return (
         <>
             <h4>
@@ -39,6 +67,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     <ModalBottle
                         setActiveModal={setActiveModal}
                         modalBottle={modalBottle}
+                        handleFavoris={handleFavoris}
                     />
                 )}
 
@@ -71,6 +100,8 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     ))
                 }
             </div>
+            {state.length > 0 && <div className="listFav">Bouteilles favorites:</div>}
+            
         </>
     );
 };

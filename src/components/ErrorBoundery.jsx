@@ -9,9 +9,6 @@ class MyErrorBoundary extends Component {
         return {errorMessage: error.toString()}
     }
 
-    // componentDidCatch(error, info) {
-    //     this.logErrorToService(error.toString(), info.componentStack);
-    // }
 
     render() {
         if (this.state.errorMessage) {
