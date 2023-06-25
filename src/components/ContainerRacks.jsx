@@ -38,7 +38,7 @@ const ContainerRacks = ({ userId }) => {
         <div className="container">
             <h3>Liste des racks</h3>
             <div className="box-racks">
-                <MyErrorBoundary>
+                <MyErrorBoundary key={userId}>
                     {listRacks &&
                         listRacks.map((rack, index) => (
                             <Rack
