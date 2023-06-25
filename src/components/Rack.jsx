@@ -1,11 +1,13 @@
 import { useReducer, useRef, useState } from "react";
 import ModalBottle from "./ModalBottle";
+import FavListBottles from "./FavListBottles";
 
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setmodalBottle] = useState();
 
+    // Affichage nombre de bouteilles dans le rack
     // useRef
     const nbrBottles = useRef(calculNbrBottles());
 
@@ -19,6 +21,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
         return bottlesInRack; 
     }
 
+    // Activation du modal
     const handleModal = (bottle) => {
         setActiveModal(true);
         setmodalBottle(bottle);
@@ -100,7 +103,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     ))
                 }
             </div>
-            {state.length > 0 && <div className="listFav">Bouteilles favorites:</div>}
+            {state.length > 0 && <FavListBottles state={state} bottles={bottles} />}
             
         </>
     );
