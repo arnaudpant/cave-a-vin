@@ -1,8 +1,6 @@
 .rack {
     position: relative;
     display: grid;
-    //grid-template-columns: repeat(6, 100px);
-    //grid-template-rows: repeat(3, 80px);
     gap: 8px 8px;
     justify-items: stretch;
     margin: 24px 0;
@@ -19,6 +17,10 @@
 
     p {
         padding-top: 4px;
+        text-align: center;
+    }
+    .millesime {
+        font-size: 0.8em;
     }
 }
 

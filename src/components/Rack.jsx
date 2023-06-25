@@ -63,7 +63,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                 className="rack"
                 style={{
                     gridTemplateColumns: `repeat(${columns}, 100px)`,
-                    gridTemplateRows: `repeat(${rows}, 80px)`,
+                    gridTemplateRows: `repeat(${rows}, 100px)`,
                 }}
             >
                 {activeModal && (
@@ -98,7 +98,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                                 }}
                             ></div>
                             <p>{bottle.aoc}</p>
-                            <p>{bottle.millesime}</p>
+                            <p className="millesime">{bottle.millesime}</p>
                         </div>
                     ))
                 }
