@@ -29,7 +29,6 @@ const Rack = ({ name, bottles, columns, rows }) => {
 
     // useReducer
     function reducerFavoris (state, action) {
-        //console.log(state)
         switch (action.type) {
             case 'ADD_FAVORIS': {
 
@@ -46,7 +45,6 @@ const Rack = ({ name, bottles, columns, rows }) => {
     }
     
     const [state, dispatch] = useReducer(reducerFavoris, [])
-    console.log(state);
 
     function handleFavoris (e, bottle) {
         e.stopPropagation()

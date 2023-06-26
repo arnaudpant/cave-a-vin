@@ -9,9 +9,14 @@ const ModalBottle = ({ setActiveModal, modalBottle, handleFavoris }) => {
                 <p>{modalBottle.millesime}</p>
                 <p>Date achat: {modalBottle.achat}</p>
             </div>
-            <button className="rack-modal__btn" onClick={(e)=> e.stopPropagation()} >Editer</button>
-            <button className="rack-modal__btn" onClick={(e)=> e.stopPropagation()} >Supprimer</button>
-            <button className="rack-modal__btn" onClick={(e)=>handleFavoris(e, modalBottle)}>Favoris</button>
+            {/* <button className="rack-modal__btn" onClick={(e)=> e.stopPropagation()} >Editer</button>
+            <button className="rack-modal__btn" onClick={(e)=> e.stopPropagation()} >Supprimer</button> */}
+            <button
+                className="rack-modal__btn"
+                onClick={(e) => handleFavoris(e, modalBottle)}
+            >
+                Favoris
+            </button>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
-    const [listRacks, setListRacks] = useState();
+    const [listRacks, setListRacks] = useState([]);
     const [dataRacks, setDataRacks] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const ContainerRacks = ({ userId }) => {
 
     useEffect(() => {
         const tempRacks = [];
-        dataRacks.map((rack) => {
+        [...dataRacks].map((rack) => {
             rack.id === userId && tempRacks.push(rack);
         });
         setListRacks(tempRacks);

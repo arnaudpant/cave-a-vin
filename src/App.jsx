@@ -2,12 +2,10 @@ import "./sass/style.scss";
 import Header from "./components/Header";
 import Connect from "./components/Connect";
 import withConnect from "./components/withConnect";
-//import { usersJson } from "./api/usersJson";
 import { useEffect, useState } from "react";
 
 function App() {
     const EnhancedComponent = withConnect(Connect);
-
     const [data, setData] = useState();
 
     useEffect(() => {

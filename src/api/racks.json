@@ -375,6 +375,46 @@
                     "achat": 2020
                 }
             ]
+        },
+        {
+            "name": "central",
+            "id": "ae45jkl",
+            "columns": 4,
+            "rows": 6,
+            "bottles": [
+                {
+                    "id": "011",
+                    "type": "blanc",
+                    "domaine": "Montlouis Moelleux",
+                    "aoc": "Montlouis",
+                    "millesime": 2014,
+                    "achat": null
+                },
+                {
+                    "id": "012",
+                    "type": "blanc",
+                    "domaine": "Montlouis Moelleux",
+                    "aoc": "Montlouis",
+                    "millesime": 2014,
+                    "achat": null
+                },
+                {
+                    "id": "013",
+                    "type": "blanc",
+                    "domaine": "Montlouis Moelleux",
+                    "aoc": "Montlouis",
+                    "millesime": 2014,
+                    "achat": null
+                },
+                {
+                    "id": "",
+                    "type": null,
+                    "domaine": null,
+                    "aoc": null,
+                    "millesime": null,
+                    "achat": null
+                }
+            ]
         }
     ]
 }
