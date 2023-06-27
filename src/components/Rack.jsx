@@ -5,26 +5,21 @@ import FavListBottles from "./FavListBottles";
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
-    const [modalBottle, setmodalBottle] = useState();
+    const [modalBottle, setModalBottle] = useState();
 
     // Affichage nombre de bouteilles dans le rack
     // useRef
     const nbrBottles = useRef(calculNbrBottles());
 
-    function calculNbrBottles() {
-        let bottlesInRack = 0;
-        for (let bottle of bottles) {
-            if (bottle.id !== "") {
-                bottlesInRack += 1;
-            }
-        }
-        return bottlesInRack; 
+    function calculNbrBottles() { 
+        // eslint-disable-next-line react/prop-types
+        return bottles.filter((bottle) => bottle.id !== "").length;
     }
 
     // Activation du modal
     const handleModal = (bottle) => {
         setActiveModal(true);
-        setmodalBottle(bottle);
+        setModalBottle(bottle);
     };
 
     // useReducer

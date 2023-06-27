@@ -1,12 +1,11 @@
 import "./sass/style.scss";
-import Header from "./components/Header";
 import Connect from "./components/Connect";
 import withConnect from "./components/withConnect";
 import { useEffect, useState } from "react";
 
 function App() {
     const EnhancedComponent = withConnect(Connect);
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +28,7 @@ function App() {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <EnhancedComponent usersJson={data} />
         </>
     );

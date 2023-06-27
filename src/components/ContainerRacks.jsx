@@ -1,6 +1,7 @@
 import Rack from "./Rack";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import Header from "./Header";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
@@ -35,26 +36,29 @@ const ContainerRacks = ({ userId }) => {
     }, [dataRacks, userId]);
 
     return (
-        <div className="container">
-            <h3>Liste des racks</h3>
-            <div className="box-racks">
-                <ErrorBoundary
-                    key={userId}
-                    fallback={<div> Une erreur s est produite </div>}
-                >
-                    {listRacks &&
-                        listRacks.map((rack, index) => (
-                            <Rack
-                                key={index}
-                                name={rack.name}
-                                bottles={rack.bottles}
-                                columns={rack.columns}
-                                rows={rack.rows}
-                            />
-                        ))}
-                </ErrorBoundary>
+        <>
+            <Header signIn={true} />
+            <div className="container">
+                <h3>Liste des racks</h3>
+                <div className="box-racks">
+                    <ErrorBoundary
+                        key={userId}
+                        fallback={<div> Une erreur s est produite </div>}
+                    >
+                        {listRacks &&
+                            listRacks.map((rack, index) => (
+                                <Rack
+                                    key={index}
+                                    name={rack.name}
+                                    bottles={rack.bottles}
+                                    columns={rack.columns}
+                                    rows={rack.rows}
+                                />
+                            ))}
+                    </ErrorBoundary>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

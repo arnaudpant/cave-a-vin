@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import Header from "./Header";
 // eslint-disable-next-line react/prop-types
 const Connect = ({ handleTest, messageError }) => {
     const [userLogin, setUserLogin] = useState("");
-    const [userPassword, setUserPassword] = useState();
+    const [userPassword, setUserPassword] = useState("");
 
     const handleLoginChange = (e) => {
         setUserLogin(e.target.value);
@@ -19,6 +19,8 @@ const Connect = ({ handleTest, messageError }) => {
     };
 
     return (
+        <>
+        <Header signIn={false} />
         <div className="box-connect">
             <form className="form-login" onSubmit={handleSubmit}>
                 <label htmlFor="loginUser">Login</label>
@@ -42,6 +44,7 @@ const Connect = ({ handleTest, messageError }) => {
                 {messageError ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
             </form>
         </div>
+        </>
     );
 };
 
