@@ -1,18 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContainerRacks from "./ContainerRacks";
 
 const withConnect = (WrappedComponent) => {
+    
     const EnhancedComponent = (props) => {
+        const [data, setData] = useState([]);
         const [loggedIn, setLoggedIn] = useState(false);
         const [messageError, setMessageError] = useState(false);
         const [userId, setUserId] = useState(null);
 
+        useEffect(() => {
+            const fetchData = async () => {
+                const url = "src/api/users.json";
+    
+                try {
+                    const response = await fetch(url);
+                    const jsonData = await response.json();
+                    setData(jsonData.users);
+                } catch (error) {
+                    console.error(
+                        "Erreur lors de la récupération du fichier JSON:",
+                        error
+                    );
+                }
+            };
+    
+            fetchData();
+        }, []);
+
         const handleTest = (userLogin, userPassword) => {
             // eslint-disable-next-line react/prop-types
-            const user = [...props.usersJson].find(
+            const user = [...data].find(
                 (user) => user.login === userLogin
             );
-            console.log(user);
+
             if (user && user.password === Number(userPassword)) {
                 // eslint-disable-next-line react/prop-types
                 setMessageError(false);

@@ -22,7 +22,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
         setModalBottle(bottle);
     };
 
-    // useReducer
+    // useReducer pour afficher les bouteilles misent en favoris
     function reducerFavoris (state, action) {
         switch (action.type) {
             case 'ADD_FAVORIS': {
