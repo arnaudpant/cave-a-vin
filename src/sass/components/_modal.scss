@@ -1,0 +1,35 @@
+.rack-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 380px;
+    border-radius: 16px;
+    background-color: $color-vin;
+    color: $color-bg;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.rack-modal__infos {
+    margin: 16px 0;
+    p{
+        padding: 4px;
+        text-align: center;
+    }
+}
+
+.rack-modal__btn {
+    width: 80px;
+    height: 32px;
+    margin: 8px 0;
+    background-color: $color-bg;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
