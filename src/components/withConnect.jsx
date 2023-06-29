@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import ContainerRacks from "./ContainerRacks";
 
 const withConnect = (WrappedComponent) => {
-    
     const EnhancedComponent = (props) => {
         const [data, setData] = useState([]);
         const [loggedIn, setLoggedIn] = useState(false);
@@ -12,7 +11,7 @@ const withConnect = (WrappedComponent) => {
         useEffect(() => {
             const fetchData = async () => {
                 const url = "src/api/users.json";
-    
+
                 try {
                     const response = await fetch(url);
                     const jsonData = await response.json();
@@ -24,25 +23,22 @@ const withConnect = (WrappedComponent) => {
                     );
                 }
             };
-    
+
             fetchData();
         }, []);
 
-        const handleTest = (userLogin, userPassword) => {
+        const handleConnectUser = (userLogin, userPassword) => {
             // eslint-disable-next-line react/prop-types
-            const user = [...data].find(
-                (user) => user.login === userLogin
-            );
+            const user = [...data].find((user) => user.login === userLogin);
 
             if (user && user.password === Number(userPassword)) {
                 // eslint-disable-next-line react/prop-types
                 setMessageError(false);
-                setUserId(user.id)
+                setUserId(user.id);
                 setLoggedIn(true);
             } else {
                 setMessageError(true);
             }
-        
         };
 
         return loggedIn ? (
@@ -51,7 +47,7 @@ const withConnect = (WrappedComponent) => {
         ) : (
             <WrappedComponent
                 {...props}
-                handleTest={handleTest}
+                handleConnectUser={handleConnectUser}
                 messageError={messageError}
             />
         );

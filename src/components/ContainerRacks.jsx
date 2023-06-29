@@ -6,9 +6,9 @@ import BottleSearch from "./BottleSearch";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
-    // Liste de tous les racks
+    // Liste de tous les racks depuis API
     const [dataRacks, setDataRacks] = useState([]);
-    // Racks filtrés par user
+    // Racks filtrés par user.id
     const [listRacks, setListRacks] = useState([]);
 
     // Recupération de tous les racks de l'api
@@ -40,6 +40,7 @@ const ContainerRacks = ({ userId }) => {
         };
     }, [dataRacks, userId]);
 
+    // Seach des bouteilles (en cours)
     const handleSubmit = (searchBottle) => {
         //e.preventDefault()
         console.log(searchBottle)

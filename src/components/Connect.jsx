@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 // eslint-disable-next-line react/prop-types
-const Connect = ({ handleTest, messageError }) => {
+const Connect = ({ handleConnectUser, messageError }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -15,7 +15,7 @@ const Connect = ({ handleTest, messageError }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleTest(userLogin, userPassword)
+        handleConnectUser(userLogin, userPassword)
     };
 
     return (
