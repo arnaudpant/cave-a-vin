@@ -1,19 +1,27 @@
 import { useState } from "react";
+import useSearchBottle from "./useSearchBottle";
 
 // eslint-disable-next-line react/prop-types
-const BottleSearch = ({handleSubmit}) => {
+const BottleSearch = () => {
+    const [bottleInInput, setBottleInInput] = useState("");
     const [searchBottle, setSearchBottle] = useState("");
+    const {showBottlesSeach} = useSearchBottle(searchBottle);
 
         
         const handleChange = (e) => {
-            setSearchBottle(e.target.value)
+            setBottleInInput(e.target.value)
         }
+        
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            setSearchBottle(bottleInInput)
+            console.log(searchBottle);
+            }
 
     return (
         <div className="form-bottle">
             <form onSubmit={(e)=> {
-                e.preventDefault()
-                handleSubmit(searchBottle)}}>
+                handleSubmit(e)}}>
                 <label>Bouteille: </label>
                 <input
                     type="text"
@@ -22,6 +30,7 @@ const BottleSearch = ({handleSubmit}) => {
                 />
                 <input type="submit" value="Rechercher" />
             </form>
+            {showBottlesSeach && <p>Affichage bouteilles search</p>}
         </div>
     );
 };

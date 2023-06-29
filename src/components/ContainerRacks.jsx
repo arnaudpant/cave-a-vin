@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Header from "./Header";
 import BottleSearch from "./BottleSearch";
+import useRacks from "./useRacks";
 
 // eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
     // Liste de tous les racks depuis API
     const [dataRacks, setDataRacks] = useState([]);
-    // Racks filtrés par user.id
-    const [listRacks, setListRacks] = useState([]);
+    // Hook personnalisé
+    const {listRacks} = useRacks({dataRacks, userId});
 
     // Recupération de tous les racks de l'api
     useEffect(() => {
@@ -27,31 +28,18 @@ const ContainerRacks = ({ userId }) => {
         fetchRacks();
     }, []);
 
-    // Tri des racks pour affichage uniquement de ceux de l'user connecté
-    useEffect(() => {
-        const tempRacks = [];
-        [...dataRacks].map((rack) => {
-            rack.id === userId && tempRacks.push(rack);
-        });
-        setListRacks(tempRacks);
-
-        return () => {
-            setListRacks([]);
-        };
-    }, [dataRacks, userId]);
 
     // Seach des bouteilles (en cours)
-    const handleSubmit = (searchBottle) => {
-        //e.preventDefault()
-        console.log(searchBottle)
-        }
+    // const handleSubmit = (searchBottle) => {
+    //     console.log(searchBottle)
+    //     }
 
 
     return (
         <>
             <Header signIn={true} />
             <div className="container">
-                <BottleSearch handleSubmit={handleSubmit} />
+                <BottleSearch />
                 <h3>Liste des racks</h3>
                 <div className="box-racks">
                     <ErrorBoundary
