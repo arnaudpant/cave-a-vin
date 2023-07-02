@@ -41,8 +41,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
     
     const [state, dispatch] = useReducer(reducerFavoris, [])
 
-    function handleFavoris (e, bottle) {
-        e.stopPropagation()
+    function handleFavoris (bottle) {
         dispatch({type: 'ADD_FAVORIS', favBottle: bottle}  )
     }
 

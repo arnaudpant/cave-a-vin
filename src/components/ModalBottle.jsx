@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 const ModalBottle = ({ setActiveModal, modalBottle, handleFavoris }) => {
+
     const handleButtonClick = (e) => {
         e.stopPropagation();
-        handleFavoris(e, modalBottle);
+        handleFavoris(modalBottle);
     };
 
     return (

@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-const useSearchBottle = ({searchBottle}) => {
+const useSearchBottle = ({listFullBottles, searchBottle}) => {
 
     const [showBottlesSeach, setShowBottlesSearch] = useState(1)
 
     
-    console.log('useSearch', searchBottle)
+    //console.log('listFullBottles', listFullBottles)
+    //console.log('searchBottle', searchBottle)
 
     return {showBottlesSeach}
 

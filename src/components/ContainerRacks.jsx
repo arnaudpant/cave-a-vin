@@ -10,7 +10,7 @@ const ContainerRacks = ({ userId }) => {
     // Liste de tous les racks depuis API
     const [dataRacks, setDataRacks] = useState([]);
     // Hook personnalisé
-    const {listRacks} = useRacks({dataRacks, userId});
+    const { listRacks } = useRacks({ dataRacks, userId });
 
     // Recupération de tous les racks de l'api
     useEffect(() => {
@@ -28,18 +28,11 @@ const ContainerRacks = ({ userId }) => {
         fetchRacks();
     }, []);
 
-
-    // Seach des bouteilles (en cours)
-    // const handleSubmit = (searchBottle) => {
-    //     console.log(searchBottle)
-    //     }
-
-
     return (
         <>
             <Header signIn={true} />
             <div className="container">
-                <BottleSearch />
+                <BottleSearch listFullBottles={listRacks} />
                 <h3>Liste des racks</h3>
                 <div className="box-racks">
                     <ErrorBoundary
