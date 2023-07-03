@@ -33,7 +33,7 @@ const ContainerRacks = ({ userId }) => {
             <Header signIn={true} />
             <div className="container">
                 <BottleSearch listFullBottles={listRacks} />
-                <h3>Liste des racks</h3>
+                <h2>Liste des racks</h2>
                 <div className="box-racks">
                     <ErrorBoundary
                         key={userId}

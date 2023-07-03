@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const useSearchBottle = ({listFullBottles, searchBottle}) => {
+const useSearchBottle = ({ listFullBottles, searchBottle }) => {
+    const [showBottlesSeach, setShowBottlesSearch] = useState([]);
 
-    const [showBottlesSeach, setShowBottlesSearch] = useState(1)
+    useEffect(() => {
+        let idBottles = [];
+        searchBottle !== "" &&
+            listFullBottles.forEach((rack) => {
+                rack.bottles.map((bottle) => {
+                    bottle.aoc === searchBottle
+                        ? idBottles.push(bottle.id)
+                        : null;
+                });
+                setShowBottlesSearch(idBottles);
+            });
+        return () => setShowBottlesSearch([]);
+    }, [searchBottle]);
 
-    
-    //console.log('listFullBottles', listFullBottles)
-    //console.log('searchBottle', searchBottle)
 
-    return {showBottlesSeach}
-
+    return { showBottlesSeach };
 };
 
 export default useSearchBottle;
