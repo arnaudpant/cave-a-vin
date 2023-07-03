@@ -2,9 +2,9 @@
 const FavListBottles = ({ state, bottles }) => {
 
     return (
-        <>
-            <h2 className="listFav">Bouteilles favorites:</h2>
-            <ul>
+        <div className="list-fav">
+            <h2 >Bouteilles favorites:</h2>
+            <ul >
                 {
                     // eslint-disable-next-line react/prop-types
                     state.map((bottleFav, index) => {
@@ -14,7 +14,7 @@ const FavListBottles = ({ state, bottles }) => {
                     })
                 }
             </ul>
-        </>
+        </div>
     );
 };
 
