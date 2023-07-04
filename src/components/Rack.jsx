@@ -5,46 +5,44 @@ import FavListBottles from "./FavListBottles";
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
-    const [modalBottle, setModalBottle] = useState();
+    const [modalBottle, setModalBottle] = useState(null);
 
-    // Affichage nombre de bouteilles dans le rack
+    // Affichage nombre de bouteilles dans le rack avec
     // useRef
     const nbrBottles = useRef(calculNbrBottles());
 
-    function calculNbrBottles() { 
+    function calculNbrBottles() {
         // eslint-disable-next-line react/prop-types
         return bottles.filter((bottle) => bottle.id !== "").length;
     }
 
     // Activation du modal
     const handleModal = (bottle) => {
-        setActiveModal(true);
         setModalBottle(bottle);
+        setActiveModal(true);
     };
 
     // useReducer pour afficher les bouteilles misent en favoris
-    function reducerFavoris (state, action) {
+    function reducerFavoris(state, action) {
         switch (action.type) {
-            case 'ADD_FAVORIS': {
-
+            case "ADD_FAVORIS": {
                 const bottleInFav = {
                     type: action.favBottle.type,
                     domaine: action.favBottle.domaine,
                     aoc: action.favBottle.aoc,
-                }
+                };
 
-                return [...state, bottleInFav]
+                return [...state, bottleInFav];
             }
         }
-        throw Error('Unknown action: ' + action.type); 
-    }
-    
-    const [state, dispatch] = useReducer(reducerFavoris, [])
-
-    function handleFavoris (bottle) {
-        dispatch({type: 'ADD_FAVORIS', favBottle: bottle}  )
+        throw Error("Unknown action: " + action.type);
     }
 
+    const [state, dispatch] = useReducer(reducerFavoris, []);
+
+    function handleFavoris(bottle) {
+        dispatch({ type: "ADD_FAVORIS", favBottle: bottle });
+    }
 
     return (
         <>
@@ -59,11 +57,24 @@ const Rack = ({ name, bottles, columns, rows }) => {
                 }}
             >
                 {activeModal && (
-                    <ModalBottle
-                        setActiveModal={setActiveModal}
-                        modalBottle={modalBottle}
-                        handleFavoris={handleFavoris}
-                    />
+                    <ModalBottle setActiveModal={setActiveModal}>
+                        <h2>Vin {modalBottle.type}</h2>
+                        <h3>{modalBottle.aoc}</h3>
+                        <div className="rack-modal__infos">
+                            <p>{modalBottle.domaine}</p>
+                            <p>{modalBottle.millesime}</p>
+                            <p>Date achat: {modalBottle.achat}</p>
+                        </div>
+                        <button
+                            className="rack-modal__btn"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleFavoris(modalBottle);
+                            }}
+                        >
+                            Favoris
+                        </button>
+                    </ModalBottle>
                 )}
 
                 {
@@ -95,8 +106,9 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     ))
                 }
             </div>
-            {state.length > 0 && <FavListBottles state={state} bottles={bottles} />}
-            
+            {state.length > 0 && (
+                <FavListBottles state={state} bottles={bottles} />
+            )}
         </>
     );
 };
