@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
-const ModalBottle = ({ children, setActiveModal }) => {
+const ModalBottle = ({ children, closeModal, activeModal }) => {
+
+    if (!activeModal) return null
+
     return (
-        <div className="rack-modal" onClick={() => setActiveModal(false)}>
+        <div className="rack-modal" onClick={() => closeModal()}>
             {children}
         </div>
     );

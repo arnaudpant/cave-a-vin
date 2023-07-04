@@ -17,9 +17,12 @@ const Rack = ({ name, bottles, columns, rows }) => {
     }
 
     // Activation du modal
+    const openModal = () => setActiveModal(true);
+    const closeModal = () => setActiveModal(false);
+
     const handleModal = (bottle) => {
         setModalBottle(bottle);
-        setActiveModal(true);
+        openModal();
     };
 
     // useReducer pour afficher les bouteilles misent en favoris
@@ -57,7 +60,10 @@ const Rack = ({ name, bottles, columns, rows }) => {
                 }}
             >
                 {activeModal && (
-                    <ModalBottle setActiveModal={setActiveModal}>
+                    <ModalBottle
+                        closeModal={closeModal}
+                        activeModal={activeModal}
+                    >
                         <h2>Vin {modalBottle.type}</h2>
                         <h3>{modalBottle.aoc}</h3>
                         <div className="rack-modal__infos">
