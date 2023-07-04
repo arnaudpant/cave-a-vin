@@ -29,6 +29,7 @@ const Connect = ({ handleConnectUser, messageError }) => {
                     id="loginUser"
                     onChange={handleLoginChange}
                     required
+                    placeholder="Login de test: p et code 1"
                 />
 
                 <label htmlFor="password" id="code">
