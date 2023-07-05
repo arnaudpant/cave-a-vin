@@ -2,6 +2,14 @@ import { useReducer, useRef, useState } from "react";
 import ModalBottle from "./ModalBottle";
 import FavListBottles from "./FavListBottles";
 
+
+// pourquoi utiliser un ref pour le nombre de bouteilles ?
+// performance revoir le lazy loading dans ce cas
+// pourquoi utiliser une fonction pour lea props bottles ?
+// le reducer doit etre externe au composant
+// le reducer doit etre dans un fichier à part
+
+
 // eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
