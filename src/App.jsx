@@ -6,9 +6,7 @@ function App() {
     const EnhancedComponent = withConnect(Connect);
 
     return (
-        <>
             <EnhancedComponent />
-        </>
     );
 }
 
