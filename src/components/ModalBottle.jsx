@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 const ModalBottle = ({ children, closeModal, activeModal }) => {
     if (!activeModal) return null;
 

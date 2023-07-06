@@ -12,5 +12,8 @@ module.exports = {
 	plugins: ['react-refresh'],
 	rules: {
 		'react-refresh/only-export-components': 'warn',
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
 	},
 };

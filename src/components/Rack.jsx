@@ -12,7 +12,6 @@ const Rack = ({ name, bottles, columns, rows }) => {
     const nbrBottles = useRef(calculNbrBottles());
 
     function calculNbrBottles() {
-        // eslint-disable-next-line react/prop-types
         return bottles.filter((bottle) => bottle.id !== "").length;
     }
 
@@ -84,7 +83,6 @@ const Rack = ({ name, bottles, columns, rows }) => {
                 )}
 
                 {
-                    // eslint-disable-next-line react/prop-types
                     bottles.map((bottle, index) => (
                         <div
                             className="bottle"
