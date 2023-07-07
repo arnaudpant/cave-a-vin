@@ -40,7 +40,7 @@ const withConnect = (WrappedComponent) => {
             <>
                 <Header />
                 <div className="error-loading-msg">
-                    Impossible de ce connecté à la base de données
+                    Impossible de se connecter à la base de données
                 </div>
             </>
         ) : loggedIn ? (
