@@ -18,14 +18,14 @@
         margin-bottom: 24px;
         height: 32px;
     }
-    
-    input[type="text"]{
+
+    input[type="text"] {
         background-color: $color-bg;
         border: none;
         border-bottom: 1px solid black;
     }
 
-    input[type="number"]{
+    input[type="number"] {
         width: 68px;
         margin: 0 auto 24px;
         font-size: 1.7em;
@@ -50,6 +50,7 @@
         padding-top: 24px;
         font-size: 1.2em;
     }
+
     .error-form {
         color: $color-vin;
     }
@@ -60,4 +61,13 @@
             cursor: pointer;
         }
     }
+}
+
+.loading-msg,
+.error-loading-msg {
+    margin: 0 auto;
+    padding-top: 80px;
+    font-size: 2em;
+    font-family: $font-text;
+    text-align: center;
 }

@@ -14,6 +14,7 @@ import Header from "./Header";
 const withConnect = (WrappedComponent) => {
     const EnhancedComponent = (props) => {
         const { data, loading, error } = useFetch("src/api/users.json");
+        
         const [loggedIn, setLoggedIn] = useState(false);
         const [messageError, setMessageError] = useState(false);
         const [userId, setUserId] = useState(null);

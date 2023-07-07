@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-const Connect = ({ handleConnectUser, messageError }) => {
+const Connect = ({ dispatch, messageError }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -14,7 +14,7 @@ const Connect = ({ handleConnectUser, messageError }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleConnectUser(userLogin, userPassword)
+        dispatch({ type: 'verified_ident', payload: { userLogin, userPassword }}) 
     };
 
     return (
