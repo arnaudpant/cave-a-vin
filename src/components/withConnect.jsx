@@ -3,13 +3,12 @@ import useFetch from "./useFetch";
 import ContainerRacks from "./ContainerRacks";
 import Header from "./Header";
 
-// utilisation d'un hooks personalisé pour récupérer les données du fichier JSON
 // meilleure utilisation des hooks pour la gestion des states par objet et dans un deuxieme temps useReducer
 // l'erreur ne remonte pas dans le state donc aucun affichage possible
 // la data ne doit pas etre immutable dans ce cas on cree un nouveau tableau avec les données du fichier JSON
 // pour un login il est préferable d'utiliser un contexte pour la gestion des states
 /*
- ** 
+ **
  */
 
 const withConnect = (WrappedComponent) => {
@@ -19,14 +18,13 @@ const withConnect = (WrappedComponent) => {
         const [messageError, setMessageError] = useState(false);
         const [userId, setUserId] = useState(null);
 
-        
         const handleConnectUser = (userLogin, userPassword) => {
-            const user = [...data.users].find(
+            const userLogged = [...data.users].find(
                 (user) => user.login === userLogin
             );
-            if (user && user.password === Number(userPassword)) {
+            if (userLogged && userLogged.password === Number(userPassword)) {
                 setMessageError(false);
-                setUserId(user.id);
+                setUserId(userLogged.id);
                 setLoggedIn(true);
             } else {
                 setMessageError(true);
@@ -36,12 +34,14 @@ const withConnect = (WrappedComponent) => {
         return loading ? (
             <>
                 <Header />
-                <div>Chargement des utilisateurs</div>
+                <div className="loading-msg">Chargement des utilisateurs</div>
             </>
         ) : error ? (
             <>
                 <Header />
-                <div>Impossible de ce connecté à la base de données</div>
+                <div className="error-loading-msg">
+                    Impossible de ce connecté à la base de données
+                </div>
             </>
         ) : loggedIn ? (
             <ContainerRacks userId={userId} />
