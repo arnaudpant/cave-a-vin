@@ -26,5 +26,17 @@
     "react-accessible-accordion": "^5.0.0",
     "react-select-async-paginate": "^0.7.2",
     "vite": "^4.3.2"
-  }
+  },
+  "description": "Challenge Bootcamp Mike Code\r Cave a vin\r Gestion des racks de vins dans une cave",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnaudpant/cave-a-vin.git"
+  },
+  "author": "akallavero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arnaudpant/cave-a-vin/issues"
+  },
+  "homepage": "https://github.com/arnaudpant/cave-a-vin#readme"
 }
