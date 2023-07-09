@@ -10,63 +10,57 @@ function App() {
 
     const { data, loading, error } = useFetch("src/api/users.json");
 
-    // const [userId, setUserId] = useState(null);
-    // const [messageError, setMessageError] = useState(false);
-
-    //const handleConnectUser = (e) => {
-
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [messageError, setMessageError] = useState(false);
+    const [userConnect, setUserConnect] = useState(null)
 
 
-    // const userLogged = [...data.users].find(
-    //     (user) => user.login === userLogin
-    // );
-    // if (userLogged && userLogged.password === Number(userPassword)) {
-    //     setMessageError(false);
-    //     setUserId(userLogged.id);
-    //     setLoggedIn(true);
-    // } else {
-    //     setMessageError(true);
-    // }
-    //};
-
-    function reducer(userId, action) {
-        switch (action.type) {
-            case 'verified_ident': {
-                const userLogged = [...data.users].find(
-                    (user) => user.login === action.payload.userLogin)
-                console.log("user", userLogged)
-
-                if (userLogged.password === action.payload.userPassword) {
-                    return { userId.id: userLogged.id, loggedIn: true, messageError: false }
-                } else {
-                    return { messageError: false }
+    function reducer(userInfos, action) {
+        if (action.type === 'verified_ident') {
+            //const test = 
+            [...data.users].filter(user => {
+                if (user.login === action.payload.userLogin && user.password === action.payload.code) {
+                    setLoggedIn(true)
+                    return setUserConnect({ id: user.id, userLogin: user.login, code: user.password })
                 }
-            }
+                if (user.login !== action.payload.userLogin || user.password !== action.payload.code) {
+                    console.log('not ok')
+                    setMessageError(true)
+                }
 
+            })
         }
     }
 
-    const [userId, dispatch] = useReducer(reducer, { id: null, loggedIn: false, messageError: false })
+    const [userInfos, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
 
-    return loading ? (
+    return (
         <>
             <Header />
-            <div className="loading-msg">Chargement des utilisateurs</div>
+            {
+                loading ? (
+                    <>
+                        <div className="loading-msg">Chargement des utilisateurs</div>
+                    </>
+                ) : error ? (
+                    <>
+                        <div className="error-loading-msg">
+                            Impossible de se connecter à la base de données
+                        </div>
+                    </>
+                ) : loggedIn ? (
+                    <ContainerRacks userId={userConnect.id} />
+                ) : (
+                    <Connect
+                        dispatch={dispatch}
+                        messageError={messageError}
+                    />
+                )
+            }
         </>
-    ) : error ? (
-        <>
-            <Header />
-            <div className="error-loading-msg">
-                Impossible de se connecter à la base de données
-            </div>
-        </>
-    ) : loggedIn ? (
-        <ContainerRacks userId={userId} />
-    ) : (
-        <Connect
-            dispatch={dispatch}
-            messageError={messageError} />
-    );
+    )
+
+
 }
 
 export default App;

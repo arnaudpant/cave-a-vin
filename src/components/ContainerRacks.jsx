@@ -1,7 +1,6 @@
 import Rack from "./Rack";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import Header from "./Header";
 import BottleSearch from "./BottleSearch";
 import useRacks from "./useRacks";
 
@@ -30,7 +29,6 @@ const ContainerRacks = ({ userId }) => {
 
     return (
         <>
-            <Header signIn={true} />
             <div className="container">
                 <BottleSearch listFullBottles={listRacks} />
                 <h2>Liste des racks</h2>
