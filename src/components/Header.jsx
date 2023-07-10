@@ -1,11 +1,11 @@
 
 
 // eslint-disable-next-line react/prop-types
-const Header = ({signIn}) => {
+const Header = ({ connect }) => {
     return (
         <header>
             <h1>RACKS A PINARD</h1>
-            {!signIn && <p>Inscription</p>}
+            {!connect && <p>Inscription</p>}
         </header>
     );
 };
