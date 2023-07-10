@@ -15,24 +15,26 @@ function App() {
     const [userConnect, setUserConnect] = useState(null)
 
 
-    function reducer(userInfos, action) {
+    function reducer(state, action) {
         if (action.type === 'verified_ident') {
-            //const test = 
-            [...data.users].filter(user => {
-                if (user.login === action.payload.userLogin && user.password === action.payload.code) {
-                    setLoggedIn(true)
-                    return setUserConnect({ id: user.id, userLogin: user.login, code: user.password })
-                }
-                if (user.login !== action.payload.userLogin || user.password !== action.payload.code) {
-                    console.log('not ok')
-                    setMessageError(true)
-                }
-
+            const userGood = [...data.users].filter(user => {
+                return user.login === action.payload.userLogin && user.password === action.payload.code
             })
+
+            if (userGood.length > 0) {
+                setMessageError(false)
+                setLoggedIn(true)
+                return setUserConnect(userGood[0])
+            }
+            else {
+                setMessageError(true)
+            }
         }
+
+        return state
     }
 
-    const [userInfos, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
+    const [state, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
 
     return (
         <>

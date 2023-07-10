@@ -39,7 +39,7 @@ const Connect = ({ dispatch, messageError }) => {
                     />
 
                     <button type="submit">VALIDER</button>
-                    {messageError === false ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
+                    {messageError === true ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
                 </form>
             </div>
         </>
