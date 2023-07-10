@@ -9,10 +9,7 @@ import Connect from "./components/Connect"
 function App() {
 
     const { data, loading, error } = useFetch("src/api/users.json");
-
-    const [loggedIn, setLoggedIn] = useState(false);
     const [messageError, setMessageError] = useState(false);
-    const [userConnect, setUserConnect] = useState(null)
 
 
     function reducer(state, action) {
@@ -23,8 +20,11 @@ function App() {
 
             if (userGood.length > 0) {
                 setMessageError(false)
-                setLoggedIn(true)
-                return setUserConnect(userGood[0])
+                return {
+                    id: userGood[0].id,
+                    userLogin: userGood[0].userLogin,
+                    code: userGood[0].password
+                }
             }
             else {
                 setMessageError(true)
@@ -36,9 +36,10 @@ function App() {
 
     const [state, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
 
+    console.log('state', state);
     return (
         <>
-            <Header connect={userConnect} />
+            <Header connect={state.id} />
             {
                 loading ? (
                     <>
@@ -50,8 +51,8 @@ function App() {
                             Impossible de se connecter à la base de données
                         </div>
                     </>
-                ) : loggedIn ? (
-                    <ContainerRacks userId={userConnect.id} />
+                ) : state.id ? (
+                    <ContainerRacks userId={state.id} />
                 ) : (
                     <Connect
                         dispatch={dispatch}
