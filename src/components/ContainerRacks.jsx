@@ -1,30 +1,22 @@
-import Rack from "./Rack";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import useFetch from "./useFetch";
+import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 import useRacks from "./useRacks";
 
-// eslint-disable-next-line react/prop-types
 const ContainerRacks = ({ userId }) => {
     // Liste de tous les racks depuis API
     const [dataRacks, setDataRacks] = useState([]);
     // Hook personnalisé
     const { listRacks } = useRacks({ dataRacks, userId });
 
-    // Recupération de tous les racks de l'api
-    useEffect(() => {
-        const fetchRacks = async () => {
-            const url = "src/api/racks.json";
+    const { data, loading, error } = useFetch("src/api/racks.json");
 
-            try {
-                const response = await fetch(url);
-                const racksJson = await response.json();
-                setDataRacks(racksJson.racks);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchRacks();
+    // Recupération de tous les racks de l'api
+
+    useEffect(() => {
+        setDataRacks(data);
     }, []);
 
     return (
@@ -35,7 +27,6 @@ const ContainerRacks = ({ userId }) => {
                 <div className="box-racks">
                     <ErrorBoundary
                         key={userId}
-                        // eslint-disable-next-line react/no-unescaped-entities
                         fallback={<div> Une erreur s'est produite </div>}
                     >
                         {listRacks &&

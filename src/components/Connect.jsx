@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Connect = ({ dispatch, messageError }) => {
+const Connect = ({ dispatch, errorLoginPassword }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -39,7 +39,7 @@ const Connect = ({ dispatch, messageError }) => {
                     />
 
                     <button type="submit">VALIDER</button>
-                    {messageError === true ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
+                    {errorLoginPassword === true ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
                 </form>
             </div>
         </>
