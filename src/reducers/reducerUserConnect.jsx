@@ -1,4 +1,4 @@
-import useFetch from "./useFetch";
+import useFetch from "../hooks/useFetch";
 
 export default function reducerUserConnect(state, action){
 

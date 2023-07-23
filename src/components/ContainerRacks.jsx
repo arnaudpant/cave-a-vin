@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import useFetch from "./useFetch";
+import useFetch from "../hooks/useFetch";
 import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
-import useRacks from "./useRacks";
+import useRacks from "../hooks/useRacks";
 
 const ContainerRacks = ({ userId }) => {
     // Liste de tous les racks depuis API
@@ -14,7 +14,6 @@ const ContainerRacks = ({ userId }) => {
     const { data, loading, error } = useFetch("src/api/racks.json");
 
     // Recupération de tous les racks de l'api
-
     useEffect(() => {
         setDataRacks(data);
     }, []);
