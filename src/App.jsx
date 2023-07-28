@@ -7,6 +7,9 @@ import Connect from "./components/Connect";
 import reducerUserConnect from "./components/reducerUserConnect";
 
 function App() {
+    /**
+    * useReducer pour tester la validité du login et mot de passe
+    */
     const [state, dispatch] = useReducer(reducerUserConnect, {
         data: { users: [] },
         id: null,
@@ -15,6 +18,11 @@ function App() {
         errorLoginPassword: false,
     });
 
+    /**
+    * hook personnalisé pour fetch la liste des users inscris (API)
+    * Affichage loader le temps du download
+    * Affichage message d'erreur si pas de connexion a l'API
+    */
     const { data, loading, error } = useFetch("src/api/users.json");
     state.data = data;
 
