@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useFetch from "./useFetch";
-import ContainerRacks from "./ContainerRacks";
-import Header from "./Header";
+import ContainerRacks from "../components/ContainerRacks";
+import Header from "../components/Header";
 
 // meilleure utilisation des hooks pour la gestion des states par objet et dans un deuxieme temps useReducer
 // l'erreur ne remonte pas dans le state donc aucun affichage possible

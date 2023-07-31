@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import useSearchBottle from "../hooks/useSearchBottle";
 
-// eslint-disable-next-line react/prop-types
 const BottleSearch = ({ listFullBottles }) => {
     const [bottleInInput, setBottleInInput] = useState("");
     const [searchBottle, setSearchBottle] = useState("");
