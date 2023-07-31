@@ -1,10 +1,10 @@
 import "./sass/style.scss";
 import { useReducer } from "react";
 import Header from "./components/Header";
-import useFetch from "./components/useFetch";
+import useFetch from "./hooks/useFetch";
 import ContainerRacks from "./components/ContainerRacks";
 import Connect from "./components/Connect";
-import reducerUserConnect from "./components/reducerUserConnect";
+import reducerUserConnect from "./reducers/reducerUserConnect";
 
 function App() {
     /**
