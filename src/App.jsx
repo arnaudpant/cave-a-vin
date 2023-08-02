@@ -36,7 +36,6 @@ function App() {
 
     const [state, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
 
-    console.log('state', state);
     return (
         <>
             <Header connect={state.id} />
