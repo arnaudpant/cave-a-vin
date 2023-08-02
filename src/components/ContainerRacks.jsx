@@ -11,11 +11,13 @@ const ContainerRacks = ({ userId }) => {
     /* Hook personnalisé */
     //const { listRacks } = useRacks({ dataRacks, userId });
 
-    // API Liste des racks via useFetch !!! PB
+    // API Liste des racks via useFetch PB
+    // FIXME:  A voir pour utiliser le hook personnalise
     // const { data, loading, error } = useFetch("src/api/racks.json");
     
 
     // Recupération de tous les racks de l'api
+    // TODO: Mettre le fetch dans App
     useEffect(() => {
         const fetchRacks = async () => {
             const url = "src/api/racks.json";
