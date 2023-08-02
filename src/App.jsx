@@ -19,10 +19,10 @@ function App() {
     });
 
     /**
-    * hook personnalisé pour fetch la liste des users inscris (API)
-    * Affichage loader le temps du download
-    * Affichage message d'erreur si pas de connexion a l'API
-    */
+     * hook personnalisé pour fetch la liste des users inscris (API)
+     * Affichage loader le temps du download
+     * Affichage message d'erreur si pas de connexion a l'API
+     */
 
     const { data, loading, error } = useFetch("src/api/users.json");
     state.data = data;
@@ -42,9 +42,12 @@ function App() {
                     </div>
                 </>
             ) : state.id ? (
-                <ContainerRacks userId={state.id} />
+                    <ContainerRacks userId={state.id} />
             ) : (
-                <Connect dispatch={dispatch} errorLoginPassword={state.errorLoginPassword} />
+                <Connect
+                    dispatch={dispatch}
+                    errorLoginPassword={state.errorLoginPassword}
+                />
             )}
         </>
     );
