@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import reducerUserConnect from "./reducers/reducerUserConnect";
-import useFetch from "./components/useFetch";
+import useFetch from "./hooks/useFetch";
 import "./sass/style.scss";
 import Header from "./components/Header";
 import ContainerRacks from "./components/ContainerRacks";
@@ -26,7 +26,6 @@ function App() {
 
     const { data, loading, error } = useFetch("src/api/users.json");
     state.data = data;
-
     return (
         <>
             <Header connect={state.id} />

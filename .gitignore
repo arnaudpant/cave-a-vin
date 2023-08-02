@@ -1,6 +1,9 @@
 #files
 notes.md
 
+#dossiers
+/src/old
+
 # Logs
 logs
 *.log
