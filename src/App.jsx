@@ -1,66 +1,54 @@
-import "./sass/style.scss"
-import { useState, useReducer } from "react";
-import Header from "./components/Header";
+import { useReducer } from "react";
+import reducerUserConnect from "./reducers/reducerUserConnect";
 import useFetch from "./components/useFetch";
+import "./sass/style.scss";
+import Header from "./components/Header";
 import ContainerRacks from "./components/ContainerRacks";
-import Connect from "./components/Connect"
-
+import Connect from "./components/Connect";
 
 function App() {
+    /**
+     * useReducer pour tester la validité du login et mot de passe
+     */
+    const [state, dispatch] = useReducer(reducerUserConnect, {
+        data: { users: [] },
+        id: null,
+        userLogin: null,
+        code: null,
+        errorLoginPassword: false,
+    });
+
+    /**
+    * hook personnalisé pour fetch la liste des users inscris (API)
+    * Affichage loader le temps du download
+    * Affichage message d'erreur si pas de connexion a l'API
+    */
 
     const { data, loading, error } = useFetch("src/api/users.json");
-    const [messageError, setMessageError] = useState(false);
-
-
-    function reducer(state, action) {
-        if (action.type === 'verified_ident') {
-            const userGood = [...data.users].filter(user => {
-                return user.login === action.payload.userLogin && user.password === action.payload.code
-            })
-
-            if (userGood.length > 0) {
-                setMessageError(false)
-                return {
-                    id: userGood[0].id,
-                    userLogin: userGood[0].userLogin,
-                    code: userGood[0].password
-                }
-            }
-            else {
-                setMessageError(true)
-            }
-        }
-
-        return state
-    }
-
-    const [state, dispatch] = useReducer(reducer, { id: null, userLogin: null, code: null });
+    state.data = data;
 
     return (
         <>
             <Header connect={state.id} />
-            {
-                loading ? (
-                    <>
-                        <div className="loading-msg">Chargement des utilisateurs</div>
-                    </>
-                ) : error ? (
-                    <>
-                        <div className="error-loading-msg">
-                            Impossible de se connecter à la base de données
-                        </div>
-                    </>
-                ) : state.id ? (
-                    <ContainerRacks userId={state.id} />
-                ) : (
-                    <Connect
-                        dispatch={dispatch}
-                        messageError={messageError}
-                    />
-                )
-            }
+            {loading ? (
+                <>
+                    <div className="loading-msg">
+                        Chargement des utilisateurs
+                    </div>
+                </>
+            ) : error ? (
+                <>
+                    <div className="error-loading-msg">
+                        Impossible de se connecter à la base de données
+                    </div>
+                </>
+            ) : state.id ? (
+                <ContainerRacks userId={state.id} />
+            ) : (
+                <Connect dispatch={dispatch} errorLoginPassword={state.errorLoginPassword} />
+            )}
         </>
-    )
+    );
 }
 
 export default App;
