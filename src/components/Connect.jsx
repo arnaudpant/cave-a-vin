@@ -3,8 +3,6 @@ const Connect = ({ dispatch, messageError }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
-    console.log("connect", messageError );
-
     const handleLoginChange = (e) => {
         setUserLogin(e.target.value);
     };

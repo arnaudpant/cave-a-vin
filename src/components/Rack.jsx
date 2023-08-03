@@ -1,8 +1,8 @@
 import { useReducer, useRef, useState } from "react";
+import reducerFavoris from "../reducers/reducerFavoris";
 import ModalBottle from "./ModalBottle";
 import FavListBottles from "./FavListBottles";
 
-// eslint-disable-next-line react/prop-types
 const Rack = ({ name, bottles, columns, rows }) => {
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setModalBottle] = useState(null);
@@ -24,21 +24,6 @@ const Rack = ({ name, bottles, columns, rows }) => {
         openModal();
     };
 
-    // useReducer pour afficher les bouteilles misent en favoris
-    function reducerFavoris(state, action) {
-        switch (action.type) {
-            case "ADD_FAVORIS": {
-                const bottleInFav = {
-                    type: action.favBottle.type,
-                    domaine: action.favBottle.domaine,
-                    aoc: action.favBottle.aoc,
-                };
-
-                return [...state, bottleInFav];
-            }
-        }
-        throw Error("Unknown action: " + action.type);
-    }
 
     const [state, dispatch] = useReducer(reducerFavoris, []);
 
