@@ -1,8 +1,8 @@
-const ModalBottle = ({ children, closeModal, activeModal }) => {
-    if (!activeModal) return null;
+const ModalBottle = ({ children, closeModal }) => {
+    //if (!activeModal) return null;
 
     return (
-        <div className="rack-modal" onClick={() => closeModal()}>
+        <div className="layout-modal" onClick={() => closeModal()}>
             {children}
         </div>
     );
