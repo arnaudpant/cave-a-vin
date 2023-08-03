@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useSearchBottle = ({ listFullBottles, searchBottle }) => {
-    const [showBottlesSeach, setShowBottlesSearch] = useState([]);
+    const [showBottlesSearch, setShowBottlesSearch] = useState([]);
 
     useEffect(() => {
         let idBottles = [];
         searchBottle !== "" &&
+        
             listFullBottles.forEach((rack) => {
                 rack.bottles.map((bottle) => {
                     bottle.aoc === searchBottle
@@ -18,7 +19,7 @@ const useSearchBottle = ({ listFullBottles, searchBottle }) => {
     }, [searchBottle]);
 
 
-    return { showBottlesSeach };
+    return { showBottlesSearch };
 };
 
 export default useSearchBottle;

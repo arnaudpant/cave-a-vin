@@ -1,14 +1,15 @@
-import { useRef, useState } from "react";
-import useSearchBottle from "./useSearchBottle";
+import { useEffect, useRef, useState } from "react";
+import useSearchBottle from "../old/useSearchBottle";
 
-// eslint-disable-next-line react/prop-types
 const BottleSearch = ({ listFullBottles }) => {
     const [bottleInInput, setBottleInInput] = useState("");
     const [searchBottle, setSearchBottle] = useState("");
     const inputRef = useRef();
 
-    const { showBottlesSeach } = useSearchBottle({listFullBottles, searchBottle});
 
+    const { showBottlesSearch } = useSearchBottle({listFullBottles, searchBottle});
+    
+    
     // Logique saisie dans l'input et submit
     const handleChange = (e) => {
         setBottleInInput(e.target.value);
@@ -32,7 +33,7 @@ const BottleSearch = ({ listFullBottles }) => {
                 <input type="text" name="emailInput" ref={inputRef} onChange={handleChange} />
                 <input type="submit" value="Rechercher" />
             </form>
-            {showBottlesSeach.length > 0 && <p>Nombre de bouteilles {searchBottle} en stock: {showBottlesSeach.length}</p>}
+            {showBottlesSearch.length > 0 && <p>Nombre de bouteilles {searchBottle} en stock: {showBottlesSearch.length}</p>}
         </div>
     );
 };
