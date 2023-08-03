@@ -1,47 +1,28 @@
 import { useEffect, useState } from "react";
 //import useRacks from "../old/useRacks";
-//import useFetch from "../hooks/useFetch";
 import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 
-const ContainerRacks = ({ userId }) => {
+const ContainerRacks = ({ userId, data, loading, error }) => {
     const [dataRacks, setDataRacks] = useState([]);
     const [listRacks, setListRacks] = useState([]);
 
-    /* Hook personnalisé */
-
+    /**
+     * Hook personnalisé
+     */
     //const { listRacks } = useRacks({ dataRacks, userId });
 
-    /* FETCH API Liste des racks via useFetch PB */
-    // FIXME:  A voir pour utiliser le hook personnalise
-
-    // const { data, loading, error } = useFetch("src/api/racks.json");
-
-    // FETCH API Liste de tous les racks
-    // TODO: Mettre le fetch dans App
+    /**
+     * Recupération des racks via props
+     * Filtre pour affichage uniquement des racks du user connecté
+     */
     useEffect(() => {
-        const fetchRacks = async () => {
-            const url = "src/api/racks.json";
-
-            try {
-                const response = await fetch(url);
-                const racksJson = await response.json();
-                setDataRacks(racksJson.racks);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchRacks();
+        setDataRacks(data.racks);
     }, []);
 
-    // Filtrer que les racks de l'utilisateur
     useEffect(() => {
         const tempRacks = [...dataRacks].filter((rack) => rack.id === userId);
         setListRacks(tempRacks);
-
-        return () => {
-            setListRacks([]);
-        };
     }, [dataRacks, userId]);
 
     return (
