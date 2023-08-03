@@ -1,19 +1,21 @@
-import { useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import reducerFavoris from "../reducers/reducerFavoris";
 import ModalBottle from "./ModalBottle";
 import FavListBottles from "./FavListBottles";
 
 const Rack = ({ name, bottles, columns, rows }) => {
+    const [totalNbrBouteilles, setTotalNbrBouteilles] = useState(0)
     const [activeModal, setActiveModal] = useState(false);
     const [modalBottle, setModalBottle] = useState(null);
 
-    // Affichage nombre de bouteilles dans le rack avec
-    // useRef
-    const nbrBottles = useRef(calculNbrBottles());
+    /**
+     * AFFICHAGE NOMBRE DE BOUTEILLES TOTAL
+     */
 
-    function calculNbrBottles() {
-        return bottles.filter((bottle) => bottle.id !== "").length;
-    }
+    useEffect(()=>{
+        setTotalNbrBouteilles(bottles.filter((bottle) => bottle.id !== "").length)
+    },[])
+
 
     // Activation du modal
     const openModal = () => setActiveModal(true);
@@ -34,7 +36,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
     return (
         <>
             <h4>
-                Rack {name} : {nbrBottles.current} bouteilles{" "}
+                Rack {name} : {totalNbrBouteilles} bouteilles{" "}
             </h4>
             <div
                 className="rack"
