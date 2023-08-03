@@ -3,14 +3,9 @@ import { useEffect, useState } from "react";
 import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 
-const ContainerRacks = ({ userId, data, loading, error }) => {
+const ContainerRacks = ({ userId, data}) => {
     const [dataRacks, setDataRacks] = useState([]);
     const [listRacks, setListRacks] = useState([]);
-
-    /**
-     * Hook personnalisé
-     */
-    //const { listRacks } = useRacks({ dataRacks, userId });
 
     /**
      * Recupération des racks via props

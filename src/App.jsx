@@ -46,7 +46,7 @@ function App() {
                     </div>
                 </>
             ) : state.id  ? (
-                    <ContainerRacks userId={state.id} data={dataRacks} loading={loadingRacks} error={errorRacks} />
+                    <ContainerRacks userId={state.id} data={dataRacks} />
             ) : (
                 <Connect
                     dispatch={dispatch}
