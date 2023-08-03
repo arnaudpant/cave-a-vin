@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-//import useRacks from "../old/useRacks";
 import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 

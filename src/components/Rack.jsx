@@ -30,10 +30,9 @@ const Rack = ({ name, bottles, columns, rows }) => {
         openModal();
     };
 
-    console.log(pageY);
-
-    // AJOUT DANS FAVORIS DES BOUTEILLES
-
+    /**
+     * AJOUT DANS FAVORIS DES BOUTEILLES
+     */
     const [state, dispatch] = useReducer(reducerFavoris, []);
 
     function handleFavoris(bottle) {
@@ -45,6 +44,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
             <h4>
                 Rack {name} : {totalNbrBouteilles} bouteilles{" "}
             </h4>
+            {/* RACK COMPLET */}
             <div
                 className="rack"
                 style={{
@@ -52,11 +52,13 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     gridTemplateRows: `repeat(${rows}, 100px)`,
                 }}
             >
+                {/* MODAL */}
                 {activeModal && (
-                    <ModalBottle
-                        closeModal={closeModal}
-                    >
-                        <div className="rack-modal" style={{ top: `${pageY}px` }}>
+                    <ModalBottle closeModal={closeModal}>
+                        <div
+                            className="rack-modal"
+                            style={{ top: `${pageY}px` }}
+                        >
                             <h2>Vin {modalBottle.type}</h2>
                             <h3>{modalBottle.aoc}</h3>
                             <div className="rack-modal__infos">
@@ -76,7 +78,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                         </div>
                     </ModalBottle>
                 )}
-
+                {/* CASES A BOUTEILLES */}
                 {bottles.map((bottle, index) => (
                     <div
                         className="bottle"
@@ -106,6 +108,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                     </div>
                 ))}
             </div>
+            {/* AFFICHAGE BOUTEILLES EN FAVORIS */}
             {state.length > 0 && (
                 <FavListBottles state={state} bottles={bottles} />
             )}
