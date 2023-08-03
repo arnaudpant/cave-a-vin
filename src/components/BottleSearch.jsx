@@ -19,7 +19,7 @@ const BottleSearch = ({ listFullBottles }) => {
         setSearchBottle(bottleInInput);
         inputRef.current.value = "";
     };
-
+    //TODO: Alignement et modif BTN Search
 
     return (
         <div className="form-bottle">

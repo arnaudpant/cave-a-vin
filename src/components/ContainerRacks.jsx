@@ -7,16 +7,17 @@ import BottleSearch from "./BottleSearch";
 const ContainerRacks = ({ userId }) => {
     const [dataRacks, setDataRacks] = useState([]);
     const [listRacks, setListRacks] = useState([]);
-    
+
     /* Hook personnalisé */
+
     //const { listRacks } = useRacks({ dataRacks, userId });
 
-    // API Liste des racks via useFetch PB
+    /* FETCH API Liste des racks via useFetch PB */
     // FIXME:  A voir pour utiliser le hook personnalise
-    // const { data, loading, error } = useFetch("src/api/racks.json");
-    
 
-    // Recupération de tous les racks de l'api
+    // const { data, loading, error } = useFetch("src/api/racks.json");
+
+    // FETCH API Liste de tous les racks
     // TODO: Mettre le fetch dans App
     useEffect(() => {
         const fetchRacks = async () => {
@@ -49,16 +50,16 @@ const ContainerRacks = ({ userId }) => {
                 <BottleSearch listFullBottles={listRacks} />
                 <h2>Liste des racks</h2>
                 <div className="box-racks">
-                        {listRacks &&
-                            listRacks.map((rack, index) => (
-                                <Rack
-                                    key={index}
-                                    name={rack.name}
-                                    bottles={rack.bottles}
-                                    columns={rack.columns}
-                                    rows={rack.rows}
-                                />
-                            ))}
+                    {listRacks &&
+                        listRacks.map((rack, index) => (
+                            <Rack
+                                key={index}
+                                name={rack.name}
+                                bottles={rack.bottles}
+                                columns={rack.columns}
+                                rows={rack.rows}
+                            />
+                        ))}
                 </div>
             </div>
         </>
