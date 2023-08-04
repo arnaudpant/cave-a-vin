@@ -11,6 +11,15 @@ const BottleSearch = ({ listFullBottles }) => {
         searchBottle,
     });
 
+
+    function filterBottleSearch () {
+        const filteredBottleIds = listFullBottles
+        .flatMap((rack) => rack.bottles)
+        .filter((bottle) => bottle.aoc === searchBottle)
+        .map((bottle) => bottle.id);
+
+    }
+
     // Logique saisie dans l'input et submit
     const handleChange = (e) => {
         setBottleInInput(e.target.value);
