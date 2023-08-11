@@ -1,10 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
-import racksContext from "../context/racksContext";
+import { useRacksContext } from "../context/racksContext";
 
 const ContainerRacks = ({ userId }) => {
-    const data = useContext(racksContext);
+    /** CONTEXT */
+    const data = useRacksContext()
+    /** STATES */
     const [dataRacks, setDataRacks] = useState([]);
     const [listRacks, setListRacks] = useState([]);
 

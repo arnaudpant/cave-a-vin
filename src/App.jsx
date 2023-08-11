@@ -1,12 +1,12 @@
+import "./sass/style.scss";
 import { useReducer } from "react";
 import reducerUserConnect from "./reducers/reducerUserConnect";
 import useFetch from "./hooks/useFetch";
 import useFetchRacks from "./hooks/useFetchRacks";
-import "./sass/style.scss";
-import Header from "./components/Header";
-import ContainerRacks from "./components/ContainerRacks";
-import Connect from "./components/Connect";
 import racksContext from "./context/racksContext";
+import Header from "./components/Header";
+import Connect from "./components/Connect";
+import ContainerRacks from "./components/ContainerRacks";
 
 function App() {
     /**
@@ -19,7 +19,7 @@ function App() {
         code: null,
         errorLoginPassword: false,
     });
-
+    
     /**
      * Hooks personnalisés pour FETCH la liste des users inscris
      * ET la liste des racks via API
