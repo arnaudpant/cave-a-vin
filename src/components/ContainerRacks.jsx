@@ -3,8 +3,8 @@ import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 import racksContext from "../context/racksContext";
 
-const ContainerRacks = ({ userId}) => {
-    const data = useContext(racksContext)
+const ContainerRacks = ({ userId }) => {
+    const data = useContext(racksContext);
     const [dataRacks, setDataRacks] = useState([]);
     const [listRacks, setListRacks] = useState([]);
 

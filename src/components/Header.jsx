@@ -1,6 +1,4 @@
 
-
-// eslint-disable-next-line react/prop-types
 const Header = ({ connect }) => {
     return (
         <header>
@@ -11,3 +9,5 @@ const Header = ({ connect }) => {
 };
 
 export default Header;
+
+//TODO: Disconnect
