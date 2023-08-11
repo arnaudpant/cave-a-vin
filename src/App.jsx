@@ -6,6 +6,7 @@ import "./sass/style.scss";
 import Header from "./components/Header";
 import ContainerRacks from "./components/ContainerRacks";
 import Connect from "./components/Connect";
+import racksContext from "./context/racksContext";
 
 function App() {
     /**
@@ -33,10 +34,10 @@ function App() {
     return (
         <>
             <Header connect={state.id} />
-            {loading ? (
+            {loading || loadingRacks ? (
                 <>
                     <div className="loading-msg">
-                        Chargement des utilisateurs
+                        Chargement des données en cours
                     </div>
                 </>
             ) : error || errorRacks ? (
@@ -46,12 +47,14 @@ function App() {
                     </div>
                 </>
             ) : state.id  ? (
-                    <ContainerRacks userId={state.id} data={dataRacks} />
+                <racksContext.Provider value={dataRacks}>
+                    <ContainerRacks userId={state.id} />
+                </racksContext.Provider>
             ) : (
-                <Connect
-                    dispatch={dispatch}
-                    messageError={state.errorLoginPassword}
-                />
+                    <Connect
+                        dispatch={dispatch}
+                        messageError={state.errorLoginPassword}
+                    />
             )}
         </>
     );
