@@ -100,7 +100,7 @@ const Rack = ({ name, bottles, columns, rows }) => {
                                         ? "#F8C3CD"
                                         : bottle.type === "petillant"
                                         ? "#FDEE00"
-                                        : null,
+                                        : "black",
                             }}
                         ></div>
                         <p>{bottle.aoc}</p>

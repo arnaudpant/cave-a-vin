@@ -5,32 +5,28 @@ import { useRacksContext } from "../context/racksContext";
 
 const ContainerRacks = ({ userId }) => {
     /** CONTEXT */
-    const data = useRacksContext()
+    const dataRacks = useRacksContext()
     /** STATES */
-    const [dataRacks, setDataRacks] = useState([]);
-    const [listRacks, setListRacks] = useState([]);
+    const [racksUserConnect, setRacksUserConnect] = useState([]);
 
     /**
-     * Recupération des racks via props
-     * Filtre pour affichage uniquement des racks du user connecté
+     * Affichage uniquement des racks du user connecté
      */
     useEffect(() => {
-        setDataRacks(data.racks);
-    }, []);
+        setRacksUserConnect(
+            [...dataRacks.racks].filter((rack) => rack.id === userId)
+        )
+    }, [dataRacks]);
 
-    useEffect(() => {
-        const tempRacks = [...dataRacks].filter((rack) => rack.id === userId);
-        setListRacks(tempRacks);
-    }, [dataRacks, userId]);
 
     return (
         <>
             <div className="container">
-                <BottleSearch listFullBottles={listRacks} />
+                <BottleSearch racksUserConnect={racksUserConnect} />
                 <h2>Liste des racks</h2>
                 <div className="box-racks">
-                    {listRacks &&
-                        listRacks.map((rack, index) => (
+                    {racksUserConnect &&
+                        racksUserConnect.map((rack, index) => (
                             <Rack
                                 key={index}
                                 name={rack.name}

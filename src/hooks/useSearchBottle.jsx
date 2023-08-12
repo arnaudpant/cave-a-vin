@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const useSearchBottle = ({ listFullBottles, searchBottle }) => {
-    const filteredBottleIds = listFullBottles
+const useSearchBottle = ({ racksUserConnect, searchBottle }) => {
+    const filteredBottleIds = racksUserConnect
         .flatMap((rack) => rack.bottles)
         .filter((bottle) => bottle.aoc === searchBottle)
         .map((bottle) => bottle.id);

@@ -22,7 +22,7 @@ function App() {
     
     /**
      * Hooks personnalisés pour FETCH la liste des users inscris
-     * ET la liste des racks via API
+     * ET la liste des racks via API en attendant une DB
      * Affichage loader le temps du download
      * Affichage message d'erreur si pas de connexion aux API
      */
@@ -31,6 +31,7 @@ function App() {
     const { dataRacks, loadingRacks, errorRacks } = useFetchRacks("src/api/racks.json");
     
     state.data = listUsers;
+
 
     return (
         <>

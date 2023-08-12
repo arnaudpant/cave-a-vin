@@ -5,7 +5,6 @@ function useFetchRacks(url) {
     const [dataRacks, setDataRacks] = useState(null);
     const [loadingRacks, setLoadingRacks] = useState(false);
     const [errorRacks, setErrorRacks] = useState(null);
-
     useEffect(() => {
         const fetchDataRacks = async () => {
             try {

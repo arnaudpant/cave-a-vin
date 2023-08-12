@@ -1,5 +1,3 @@
-import useFetchUsers from "../hooks/useFetchUsers";
-
 export default function reducerUserConnect(state, action) {
     if (action.type === "verified_ident") {
 
@@ -12,7 +10,7 @@ export default function reducerUserConnect(state, action) {
 
         if (userGood.length > 0) {
             return {
-                ...state,
+                ...state[0],
                 id: userGood[0].id,
                 userLogin: userGood[0].login,
                 code: userGood[0].password,

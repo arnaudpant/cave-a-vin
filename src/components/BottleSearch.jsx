@@ -1,26 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import useSearchBottle from "../old/useSearchBottle";
+import { useRef, useState } from "react";
+import useSearchBottle from "../hooks/useSearchBottle";
 
-const BottleSearch = ({ listFullBottles }) => {
+const BottleSearch = ({ racksUserConnect }) => {
     const [bottleInInput, setBottleInInput] = useState("");
     const [searchBottle, setSearchBottle] = useState("");
     const inputRef = useRef();
 
     const { filteredBottleIds } = useSearchBottle({
-        listFullBottles,
+        racksUserConnect,
         searchBottle,
     });
 
-
-    function filterBottleSearch () {
-        const filteredBottleIds = listFullBottles
-        .flatMap((rack) => rack.bottles)
-        .filter((bottle) => bottle.aoc === searchBottle)
-        .map((bottle) => bottle.id);
-
-    }
-
-    // Logique saisie dans l'input et submit
     const handleChange = (e) => {
         setBottleInInput(e.target.value);
     };
