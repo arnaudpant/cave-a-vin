@@ -4,6 +4,9 @@ const racksContext = createContext(undefined);
 
 export default racksContext;
 
+/**
+ * HOOK PERSONNALISE POUR TEST
+ */
 export function useRacksContext() {
     const dataRacks = useContext(racksContext);
 
@@ -12,4 +15,12 @@ export function useRacksContext() {
     }
 
     return dataRacks
+}
+
+/** 
+* PROVIDER PERSONNALISE
+*/
+
+export function RackProvider(children){
+    
 }

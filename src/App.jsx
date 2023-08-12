@@ -19,7 +19,7 @@ function App() {
         code: null,
         errorLoginPassword: false,
     });
-    
+
     /**
      * Hooks personnalisés pour FETCH la liste des users inscris
      * ET la liste des racks via API en attendant une DB
@@ -28,10 +28,20 @@ function App() {
      */
 
     const { listUsers, loading, error } = useFetchUsers("src/api/users.json");
-    const { dataRacks, loadingRacks, errorRacks } = useFetchRacks("src/api/racks.json");
-    
+    const { dataRacks, loadingRacks, errorRacks } =
+        useFetchRacks("src/api/racks.json");
+
     state.data = listUsers;
 
+    /**
+     * PROVIDER PERSONNALISE
+     */
+
+    function RackProvider(children) {
+        const stateId = state.id;
+        const values = [dataRacks, stateId];
+        return <racksContext.Provider value={values} {...children} />;
+    }
 
     return (
         <>
@@ -48,15 +58,18 @@ function App() {
                         Impossible de se connecter à la base de données
                     </div>
                 </>
-            ) : state.id  ? (
-                <racksContext.Provider value={dataRacks}>
-                    <ContainerRacks userId={state.id} />
-                </racksContext.Provider>
+            ) : state.id ? (
+                <RackProvider>
+                    <ContainerRacks />
+                </RackProvider>
             ) : (
-                    <Connect
-                        dispatch={dispatch}
-                        messageError={state.errorLoginPassword}
-                    />
+                // <racksContext.Provider value={dataRacks}>
+                //     <ContainerRacks userId={state.id} />
+                // </racksContext.Provider>
+                <Connect
+                    dispatch={dispatch}
+                    messageError={state.errorLoginPassword}
+                />
             )}
         </>
     );

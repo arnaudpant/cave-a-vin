@@ -3,9 +3,9 @@ import Rack from "./Rack";
 import BottleSearch from "./BottleSearch";
 import { useRacksContext } from "../context/racksContext";
 
-const ContainerRacks = ({ userId }) => {
+const ContainerRacks = () => {
     /** CONTEXT */
-    const dataRacks = useRacksContext()
+    const [dataRacks, stateId ] = useRacksContext()
     /** STATES */
     const [racksUserConnect, setRacksUserConnect] = useState([]);
 
@@ -14,7 +14,7 @@ const ContainerRacks = ({ userId }) => {
      */
     useEffect(() => {
         setRacksUserConnect(
-            [...dataRacks.racks].filter((rack) => rack.id === userId)
+            [...dataRacks.racks].filter((rack) => rack.id === stateId)
         )
     }, [dataRacks]);
 
