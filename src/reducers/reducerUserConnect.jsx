@@ -1,5 +1,8 @@
+import useFetchUsers from "../hooks/useFetchUsers";
+
 export default function reducerUserConnect(state, action) {
     if (action.type === "verified_ident") {
+
         const userGood = [...state.data.users].filter((user) => {
             return (
                 user.login === action.payload.userLogin &&

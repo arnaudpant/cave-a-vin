@@ -1,7 +1,7 @@
 import "./sass/style.scss";
 import { useReducer } from "react";
 import reducerUserConnect from "./reducers/reducerUserConnect";
-import useFetch from "./hooks/useFetch";
+import useFetchUsers from "./hooks/useFetchUsers";
 import useFetchRacks from "./hooks/useFetchRacks";
 import racksContext from "./context/racksContext";
 import Header from "./components/Header";
@@ -27,9 +27,10 @@ function App() {
      * Affichage message d'erreur si pas de connexion aux API
      */
 
-    const { data, loading, error } = useFetch("src/api/users.json");
+    const { listUsers, loading, error } = useFetchUsers("src/api/users.json");
     const { dataRacks, loadingRacks, errorRacks } = useFetchRacks("src/api/racks.json");
-    state.data = data;
+    
+    state.data = listUsers;
 
     return (
         <>
