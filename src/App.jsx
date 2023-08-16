@@ -63,9 +63,6 @@ function App() {
                     <ContainerRacks />
                 </RackProvider>
             ) : (
-                // <racksContext.Provider value={dataRacks}>
-                //     <ContainerRacks userId={state.id} />
-                // </racksContext.Provider>
                 <Connect
                     dispatch={dispatch}
                     messageError={state.errorLoginPassword}
