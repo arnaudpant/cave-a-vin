@@ -27,7 +27,7 @@ function App() {
      * Affichage message d'erreur si pas de connexion aux API
      */
 
-    const { listUsers, loading, error } = useFetchUsers("src/api/users.json");
+    const { listUsers, loadingUsers, errorUsers } = useFetchUsers("src/api/users.json");
     const { dataRacks, loadingRacks, errorRacks } =
         useFetchRacks("src/api/racks.json");
 

@@ -3,28 +3,28 @@ import { useEffect, useState } from "react";
 
 function useFetchUsers(url) {
     const [listUsers, setListUsers] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [loadingUsers, setLoadingUsers] = useState(false);
+    const [errorUsers, setErrorUsers] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true);
+                setLoadingUsers(true);
                 const response = await fetch(url);
                 const jsonData = await response.json();
                 setListUsers(jsonData);
             } catch (error) {
-                setLoading(false);
-                setError(error);
+                setLoading(Usersfalse);
+                setErrorUsers(error);
             } finally {
-                setLoading(false);
+                setLoadingUsers(false);
             }
         };
 
         fetchData();
     }, [url]);
 
-    return { listUsers, loading, error };
+    return { listUsers, loadingUsers, errorUsers };
 }
 
 export default useFetchUsers
