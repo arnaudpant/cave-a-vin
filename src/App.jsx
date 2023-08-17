@@ -46,13 +46,13 @@ function App() {
     return (
         <>
             <Header connect={state.id} />
-            {loading || loadingRacks ? (
+            {loadingUsers || loadingRacks ? (
                 <>
                     <div className="loading-msg">
                         Chargement des données en cours
                     </div>
                 </>
-            ) : error || errorRacks ? (
+            ) : errorUsers || errorRacks ? (
                 <>
                     <div className="error-loading-msg">
                         Impossible de se connecter à la base de données
