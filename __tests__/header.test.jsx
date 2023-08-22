@@ -5,7 +5,8 @@ import Header from "../src/components/Header";
 
 test("Affiche le titre H1", () => {
     render(<Header />);
-    const title = screen.getByText("RACKS A PINARD");
+    const title = screen.getByRole('heading', { level: 1 });
+    expect(title).toHaveTextContent("RACKS A PINARD")
 });
 
 test("User not connect => Affiche inscription", () => {
