@@ -7,12 +7,20 @@ const Header = ({ connect }) => {
     return (
         <header>
             <h1>RACKS A PINARD</h1>
-            {!connect && 
-                <div 
+            {!connect && (
+                <div
                     className="btn-inscription"
                     onClick={() => setShowModal(true)}
-                    >Inscription</div>}
-            {showModal && createPortal(<ModalConnect setShowModal={setShowModal} />, document.body)}
+                    role="button"
+                >
+                    Inscription
+                </div>
+            )}
+            {showModal &&
+                createPortal(
+                    <ModalConnect setShowModal={setShowModal} />,
+                    document.body
+                )}
         </header>
     );
 };
