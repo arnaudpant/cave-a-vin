@@ -7,10 +7,11 @@ header {
     h1 {
         padding-top: 12px;
     }
-    p {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        cursor: pointer;
-    }
+}
+
+.btn-inscription {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
 }
