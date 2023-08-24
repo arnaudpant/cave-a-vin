@@ -13,7 +13,10 @@ const Connect = ({ dispatch, messageError }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch({ type: 'verified_ident', payload: { userLogin: userLogin, code: userPassword } })
+        dispatch({
+            type: "verified_ident",
+            payload: { userLogin: userLogin, code: userPassword },
+        });
     };
 
     return (
@@ -29,22 +32,26 @@ const Connect = ({ dispatch, messageError }) => {
                         placeholder="Login de test: p et code 1"
                     />
 
-                    <label htmlFor="password" id="code">
-                        Code à 3 chiffres
-                    </label>
+                    <label htmlFor="password">Code a 3 chiffres</label>
                     <input
                         type="number"
                         id="password"
+                        data-testid="password"
                         onChange={handlePasswordChange}
                     />
 
                     <button type="submit">VALIDER</button>
-                    {messageError === true ? (<p className="error-form">Login ou code incorrect</p>) : (<p className="no-compte">Pas de compte ? <span>Inscrivez-vous</span></p>)}
+                    {messageError === true ? (
+                        <p className="error-form">Login ou code incorrect</p>
+                    ) : (
+                        <p className="no-compte">
+                            Pas de compte ? <span>Inscrivez-vous</span>
+                        </p>
+                    )}
                 </form>
             </div>
         </>
     );
 };
-
 
 export default Connect;
