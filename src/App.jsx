@@ -7,7 +7,7 @@ import racksContext from "./context/racksContext";
 import Header from "./components/Header";
 import Connect from "./components/Connect";
 import ContainerRacks from "./components/ContainerRacks";
-import TestComponent from "./components/TestComponent";
+
 
 function App() {
     /**
@@ -68,6 +68,7 @@ function App() {
                     dispatch={dispatch}
                     messageError={state.errorLoginPassword}
                 />
+                
             )}
         </>
     );

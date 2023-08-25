@@ -29,7 +29,7 @@ const Connect = ({ dispatch, messageError }) => {
                         id="loginUser"
                         onChange={handleLoginChange}
                         required
-                        placeholder="Login de test: p et code 1"
+                        placeholder="Entrez votre login"
                     />
 
                     <label htmlFor="password">Code a 3 chiffres</label>
