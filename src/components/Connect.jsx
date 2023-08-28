@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Connect = ({ dispatch, messageError }) => {
+const Connect = ({ dispatch, messageError, setShowModal }) => {
     const [userLogin, setUserLogin] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -52,7 +52,7 @@ const Connect = ({ dispatch, messageError }) => {
                     {messageError === true ? (
                         <p className="error-form">Login ou code incorrect</p>
                     ) : (
-                        <p className="no-compte">
+                        <p className="no-compte" onClick={()=>setShowModal(true)}>
                             Pas de compte ? <span>Inscrivez-vous</span>
                         </p>
                     )}

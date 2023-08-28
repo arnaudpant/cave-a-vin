@@ -82,6 +82,7 @@ function App() {
                 <Connect
                     dispatch={dispatch}
                     messageError={state.errorLoginPassword}
+                    setShowModal={setShowModal}
                 />
             )}
         </>
