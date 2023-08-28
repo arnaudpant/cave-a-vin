@@ -21,8 +21,10 @@ test("User connect => N'affiche pas inscription", () => {
     expect(inscription).not.toBeInTheDocument();
 });
 
-// test("Click sur inscription => modal", () => {
-//     render(<Header connect={false} />);
-//     const btnInscription = screen.getByText("Inscription");
-//     fireEvent.click(btnInscription)
-// });
+test("Click sur inscription => modal", () => {
+    const mockConnect= vi.fn();
+    render(<Header setShowModal={mockConnect} />);
+    const btnInscription = screen.getByText("Inscription");
+    fireEvent.click(btnInscription);
+    expect(mockConnect).toHaveBeenCalledWith(true)
+});
