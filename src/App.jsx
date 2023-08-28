@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import Connect from "./components/Connect";
 import ContainerRacks from "./components/ContainerRacks";
 
-
 function App() {
     /**
      * useReducer pour tester la validité du login et mot de passe
@@ -28,7 +27,8 @@ function App() {
      * Affichage message d'erreur si pas de connexion aux API
      */
 
-    const { listUsers, loadingUsers, errorUsers } = useFetchUsers("src/api/users.json");
+    const { listUsers, loadingUsers, errorUsers } =
+        useFetchUsers("src/api/users.json");
     const { dataRacks, loadingRacks, errorRacks } =
         useFetchRacks("src/api/racks.json");
 
@@ -68,7 +68,6 @@ function App() {
                     dispatch={dispatch}
                     messageError={state.errorLoginPassword}
                 />
-                
             )}
         </>
     );

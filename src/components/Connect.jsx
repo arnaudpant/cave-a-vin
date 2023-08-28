@@ -19,6 +19,13 @@ const Connect = ({ dispatch, messageError }) => {
         });
     };
 
+    const handleSubmitDemo = () => {
+        dispatch({
+            type: "verified_ident",
+            payload: { userLogin: "demo", code: 123 },
+        });
+    };
+
     return (
         <>
             <div className="box-connect">
@@ -38,6 +45,7 @@ const Connect = ({ dispatch, messageError }) => {
                         id="password"
                         data-testid="password"
                         onChange={handlePasswordChange}
+                        placeholder="***"
                     />
 
                     <button type="submit">VALIDER</button>
@@ -49,6 +57,9 @@ const Connect = ({ dispatch, messageError }) => {
                         </p>
                     )}
                 </form>
+            </div>
+            <div className="demonstration" onClick={handleSubmitDemo}>
+                <button className="demonstration-btn">Version de démonstration</button>
             </div>
         </>
     );
