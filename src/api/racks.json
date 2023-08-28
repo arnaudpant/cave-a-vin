@@ -352,7 +352,7 @@
                 },
                 {
                     "id": "iii",
-                    "type": "pettillant",
+                    "type": "petillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2017,
@@ -360,7 +360,7 @@
                 },
                 {
                     "id": "uuu",
-                    "type": "pettillant",
+                    "type": "petillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2018,
@@ -368,7 +368,7 @@
                 },
                 {
                     "id": "yyy",
-                    "type": "pettillant",
+                    "type": "petillant",
                     "domaine": "Piquette",
                     "aoc": "champagne",
                     "millesime": 2018,
@@ -536,19 +536,19 @@
                 },
                 {
                     "id": "054",
-                    "type": null,
-                    "domaine": null,
-                    "aoc": null,
-                    "millesime": null,
-                    "achat": null
+                    "type": "petillant",
+                    "domaine": "Piquette",
+                    "aoc": "champagne",
+                    "millesime": 2017,
+                    "achat": 2020
                 },
                 {
                     "id": "061",
-                    "type": null,
-                    "domaine": null,
-                    "aoc": null,
-                    "millesime": null,
-                    "achat": null
+                    "type": "petillant",
+                    "domaine": "Piquette",
+                    "aoc": "champagne",
+                    "millesime": 2017,
+                    "achat": 2020
                 },
                 {
                     "id": "062",

@@ -29,6 +29,7 @@ const Connect = ({ dispatch, messageError, setShowModal }) => {
     return (
         <>
             <div className="box-connect">
+                <h2>Connexion</h2>
                 <form className="form-login" onSubmit={handleSubmit}>
                     <label htmlFor="loginUser">Login</label>
                     <input
