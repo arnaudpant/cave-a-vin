@@ -1,9 +1,4 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
-import ModalConnect from "./ModalConnect";
-
-const Header = ({ connect }) => {
-    const [showModal, setShowModal] = useState(false);
+const Header = ({ connect, setShowModal }) => {
     return (
         <header>
             <h1>RACKS A PINARD</h1>
@@ -16,11 +11,6 @@ const Header = ({ connect }) => {
                     Inscription
                 </div>
             )}
-            {showModal &&
-                createPortal(
-                    <ModalConnect setShowModal={setShowModal} />,
-                    document.body
-                )}
         </header>
     );
 };

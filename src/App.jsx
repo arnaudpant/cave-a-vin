@@ -1,14 +1,22 @@
 import "./sass/style.scss";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+import { createPortal } from "react-dom";
 import reducerUserConnect from "./reducers/reducerUserConnect";
 import useFetchUsers from "./hooks/useFetchUsers";
 import useFetchRacks from "./hooks/useFetchRacks";
 import racksContext from "./context/racksContext";
 import Header from "./components/Header";
+import ModalConnect from "./components/ModalConnect";
 import Connect from "./components/Connect";
 import ContainerRacks from "./components/ContainerRacks";
 
 function App() {
+    /**
+     * MODAL CONNEXION
+     */
+
+    const [showModal, setShowModal] = useState(false);
+
     /**
      * useReducer pour tester la validité du login et mot de passe
      */
@@ -44,9 +52,16 @@ function App() {
         return <racksContext.Provider value={values} {...children} />;
     }
 
+
+
     return (
         <>
-            <Header connect={state.id} />
+            {showModal &&
+                createPortal(
+                    <ModalConnect setShowModal={setShowModal} />,
+                    document.body
+                )}
+            <Header connect={state.id} setShowModal={setShowModal} />
             {loadingUsers || loadingRacks ? (
                 <>
                     <div className="loading-msg">
