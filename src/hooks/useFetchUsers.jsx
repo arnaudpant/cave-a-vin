@@ -14,7 +14,7 @@ function useFetchUsers(url) {
                 const jsonData = await response.json();
                 setListUsers(jsonData);
             } catch (error) {
-                setLoading(Usersfalse);
+                setLoadingUsers(false);
                 setErrorUsers(error);
             } finally {
                 setLoadingUsers(false);
